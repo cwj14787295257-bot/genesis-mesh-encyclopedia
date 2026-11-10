@@ -1,8 +1,8 @@
-# 网子雾化器图鉴 · Genesis Mesh Atomizer Encyclopedia
+# NIRVANA · 网子雾化器图鉴 · Genesis Mesh Atomizer Encyclopedia
 
 [![Deploy to GitHub Pages](https://github.com/cwj14787295257-bot/genesis-mesh-encyclopedia/actions/workflows/deploy.yml/badge.svg)](https://github.com/cwj14787295257-bot/genesis-mesh-encyclopedia/actions/workflows/deploy.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Tests](https://img.shields.io/badge/Tests-29%2F29%20PASS-brightgreen.svg)](scratch/verify_and_audit_catalog.py)
+[![Tests](https://img.shields.io/badge/Tests-30%2F30%20PASS-brightgreen.svg)](scratch/verify_and_audit_catalog.py)
 
 **在线访问地址**：[https://cwj14787295257-bot.github.io/genesis-mesh-encyclopedia/](https://cwj14787295257-bot.github.io/genesis-mesh-encyclopedia/)
 

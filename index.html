@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>网子雾化器图鉴 · Mesh RBA Encyclopedia</title>
+  <link rel="icon" type="image/jpeg" href="assets/nirvana-logo.jpeg" />
+  <link rel="apple-touch-icon" href="assets/nirvana-logo.jpeg" />
+  <title>NIRVANA · 网子雾化器图鉴 · Genesis Mesh Encyclopedia</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -48,6 +50,46 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+    .brand-header-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand-logo-img {
+      height: 34px;
+      width: auto;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+      border-radius: 6px;
+      transition: transform 0.25s ease;
+    }
+    .brand-logo-img:hover {
+      transform: scale(1.08);
+    }
+    .brand-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      margin-bottom: 14px;
+    }
+    .brand-pill-logo {
+      height: 18px;
+      width: auto;
+      object-fit: contain;
+      mix-blend-mode: multiply;
     }
     .logo-text {
       font-size: 1.15rem;
@@ -1365,9 +1407,12 @@
   <!-- Top Navigation Header -->
   <header>
     <div class="nav-bar">
-      <div class="logo-text">
-        <span>网子图鉴</span>
-        <span class="logo-badge">Mesh RBA Encyclopedia</span>
+      <div class="brand-header-wrap">
+        <img src="assets/nirvana-logo.jpeg" alt="NIRVANA Logo" class="brand-logo-img" />
+        <div class="logo-text">
+          <span>NIRVANA · 网子雾化器图鉴</span>
+          <span class="logo-badge">Genesis Mesh Encyclopedia</span>
+        </div>
       </div>
       <div style="font-size: 0.85rem; color: var(--text-secondary);">
         80 款经典网子雾化器 · 严谨文献与实操档案
@@ -1377,6 +1422,10 @@
 
   <!-- Hero Banner -->
   <section class="hero">
+    <div class="brand-pill-badge">
+      <img src="assets/nirvana-logo.jpeg" alt="NIRVANA Logo" class="brand-pill-logo" />
+      <span>NIRVANA VAPE LABEL · ARCHIVE</span>
+    </div>
     <div class="hero-eyebrow">The Mesh Atomizer Compendium</div>
     <h1>网子雾化器技术与设计图鉴</h1>
     <p>收录经典 Genesis 创世纪与网子雾化器设备档案、精密硬件规格、真实文献评测出处与作丝备忘数据。</p>
@@ -1566,8 +1615,14 @@
 
   <!-- Footer -->
   <footer>
-    <p>网子图鉴 · 雾化器与作丝数据手册 · 本地离线版</p>
-    <p style="margin-top: 6px;">评测严守客观出处原则，杜绝无据杜撰 · 可直接在 images/ 替换实物照片</p>
+    <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px;">
+      <img src="assets/nirvana-logo.jpeg" alt="NIRVANA Logo" style="height: 22px; width: auto; mix-blend-mode: multiply;" />
+      <span style="font-weight: 700; color: var(--text-primary); letter-spacing: 0.04em;">© 2026 NIRVANA VAPE LABEL</span>
+      <span>·</span>
+      <span>保留所有权利 (All Rights Reserved)</span>
+    </div>
+    <p>网子雾化器技术与设计图鉴 · Genesis Mesh Atomizer Encyclopedia · 本地与在线典藏版</p>
+    <p style="margin-top: 6px;">评测严守客观出处原则，杜绝无据杜撰 · 本项目基于 MIT 许可证开源</p>
   </footer>
 
   <script>

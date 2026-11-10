@@ -705,8 +705,25 @@ def full_catalog_audit():
     print(f"  语调审查统计: 全馆 80 款设计要点与考据说明全部通过 lieflat-less-ai-tone 白名单审查（0 翻案腔, 0 破折号, 0 宣传炒作词, 0 感叹号, 0 仿品黑话）")
     print(f" -> 验证通过: 全馆界面文案与底层数据彻底消除 AI 痕迹，行文严谨客观！")
 
+    # --- 30. Nirvana Brand Integration & Logo Asset Verification ---
+    print(f"\n[Test 30] 校验 Nirvana 厂牌视觉体系与 Logo 资产完备性...")
+    logo_path = os.path.join(base_dir, 'assets', 'nirvana-logo.jpeg')
+    assert os.path.exists(logo_path), "assets/nirvana-logo.jpeg missing"
+    assert os.path.getsize(logo_path) > 50000, "assets/nirvana-logo.jpeg corrupted or too small"
+
+    with open(os.path.join(base_dir, 'index.html'), 'r', encoding='utf-8') as f:
+        html = f.read()
+
+    assert 'assets/nirvana-logo.jpeg' in html, "index.html missing assets/nirvana-logo.jpeg"
+    assert 'NIRVANA · 网子雾化器图鉴' in html, "index.html missing Nirvana header title"
+    assert 'NIRVANA VAPE LABEL · ARCHIVE' in html, "index.html missing Nirvana hero pill badge"
+    assert '© 2026 NIRVANA VAPE LABEL' in html, "index.html missing Nirvana copyright footer"
+    assert 'rel="icon" type="image/jpeg" href="assets/nirvana-logo.jpeg"' in html, "index.html missing Nirvana favicon"
+    print(f"  厂牌资产审查: Logo 尺寸正常 ({os.path.getsize(logo_path)} 字节)，Favicon、置顶导航栏、Hero 厂牌胶囊与页脚版权已全维贯通。")
+    print(f" -> 验证通过: Nirvana 厂牌视觉体系 100% 验收通过！")
+
     print("\n" + "=" * 60)
-    print("    恭喜！全馆 29 大终极核对套件全部通过（100% PASS）！")
+    print("    恭喜！全馆 30 大终极核对套件全部通过（100% PASS）！")
     print("=" * 60)
 
 if __name__ == '__main__':
