@@ -185,7 +185,8 @@ def full_catalog_audit():
     assert 'paravozz_cyclone' in html
     assert 'og2_4ml' not in html
     for item in data:
-        assert f"'{item['id']}'" in html or f'"{item['id']}"' in html, f"Model {item['id']} missing in index.html"
+        mid = item['id']
+        assert f"'{mid}'" in html or f'"{mid}"' in html, f"Model {mid} missing in index.html"
     print(f" -> 验证通过: index.html 包含了全馆所有 {len(data)} 款数据及对应的前端胶囊与交互逻辑。")
 
     # --- 12. Four Pioneers Genesis Genesis Lineage Audit ---
