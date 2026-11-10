@@ -1,0 +1,24 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Local scratch & temporary migration scripts
+scratch/*
+!scratch/verify_and_audit_catalog.py
+
+# Temporary debug images & logs
+20a87f6d3b5d71d60f76d0ce1b71680b.png
+cf96647cbe2898ee4a9cde5341067a6c.png
+*.log
+*.tmp
