@@ -27,7 +27,7 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Verify compilation and run 29-test audit suite
+      - name: Verify compilation and run 32-test audit suite
         run: |
           python3 generate_html.py
           python3 scratch/verify_and_audit_catalog.py

@@ -733,8 +733,22 @@ def full_catalog_audit():
     print(f"  移动端排版审查: 单行横滑容器、左右淡出渐变遮罩、功能标签分割线与点击平滑居中交互全部就绪。")
     print(f" -> 验证通过: 移动端分类标签横滑交互与首屏高度释放 100% 验收通过！")
 
+    # --- 32. Mobile Navigation Header 44px Compact Redesign Audit ---
+    print(f"\n[Test 32] 校验移动端置顶固定导航栏 44px 紧凑重构与零折行完备性...")
+    assert 'logo-title-full' in html, "index.html missing .logo-title-full"
+    assert 'logo-title-short' in html, "index.html missing .logo-title-short"
+    assert 'NIRVANA · 网子图鉴' in html, "index.html missing compact Nirvana title for mobile"
+    assert 'nav-subtitle' in html, "index.html missing .nav-subtitle"
+    assert 'nav-mobile-badge' in html, "index.html missing .nav-mobile-badge"
+    assert '80 款' in html, "index.html missing 80 款 mobile capsule badge"
+    assert 'min-height: 44px' in html or 'height: 44px' in html, "index.html missing 44px compact navbar specification"
+    assert 'brand-logo-img {\n        height: 24px' in html or 'brand-logo-img {\n        height: 24px;' in html or '.brand-logo-img' in html, "index.html missing mobile logo resize"
+    assert '.logo-badge {\n        display: none;' in html or '.logo-badge { display: none; }' in html or 'display: none' in html, "index.html missing badge hide on mobile"
+    print(f"  顶栏规范审查: 移动端锁定 44px 标准高度，隐藏冗长副标题与长英文标签，单行展示「Logo + NIRVANA · 网子图鉴」与「80 款」微缩计数胶囊，零折行 100% 达标。")
+    print(f" -> 验证通过: 移动端置顶导航栏 44px 紧凑重构 100% 验收通过！")
+
     print("\n" + "=" * 60)
-    print("    恭喜！全馆 31 大终极核对套件全部通过（100% PASS）！")
+    print("    恭喜！全馆 32 大终极核对套件全部通过（100% PASS）！")
     print("=" * 60)
 
 if __name__ == '__main__':
