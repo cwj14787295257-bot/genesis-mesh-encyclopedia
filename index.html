@@ -184,6 +184,11 @@
       border-color: rgba(0, 113, 227, 0.3);
     }
 
+    .filter-pills-wrap {
+      position: relative;
+      max-width: 100%;
+      margin: 0 auto;
+    }
     .filter-pills {
       display: flex;
       flex-wrap: wrap;
@@ -201,6 +206,8 @@
       cursor: pointer;
       transition: all .2s ease;
       user-select: none;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
     .filter-pill:hover {
       border-color: rgba(0,0,0,0.18);
@@ -210,6 +217,69 @@
       background: var(--text-primary);
       color: #FFFFFF;
       border-color: var(--text-primary);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+
+    /* Functional feature filters & divider */
+    .filter-divider {
+      width: 1px;
+      height: 22px;
+      background: rgba(0,0,0,0.12);
+      align-self: center;
+      margin: 0 2px;
+      flex-shrink: 0;
+    }
+    .filter-pill-feature {
+      background: rgba(0, 113, 227, 0.05);
+      border-color: rgba(0, 113, 227, 0.18);
+      color: var(--apple-blue);
+      font-weight: 600;
+    }
+    .filter-pill-feature:hover {
+      background: rgba(0, 113, 227, 0.1);
+      border-color: var(--apple-blue);
+      color: var(--apple-blue);
+    }
+    .filter-pill-feature.active {
+      background: var(--apple-blue);
+      border-color: var(--apple-blue);
+      color: #FFFFFF;
+      box-shadow: 0 2px 10px rgba(0, 113, 227, 0.28);
+    }
+
+    @media (max-width: 768px) {
+      .controls-wrap {
+        padding: 0 16px 24px;
+      }
+      .filter-pills-wrap {
+        overflow: hidden;
+        margin: 0 -16px;
+        padding: 0;
+        mask-image: linear-gradient(to right, transparent 0, black 20px, black calc(100% - 20px), transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, transparent 0, black 20px, black calc(100% - 20px), transparent 100%);
+      }
+      .filter-pills {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        padding: 6px 18px 10px;
+        gap: 8px;
+      }
+      .filter-pills::-webkit-scrollbar {
+        display: none;
+      }
+      .filter-pill {
+        font-size: 0.82rem;
+        padding: 6px 14px;
+      }
+      .filter-divider {
+        height: 18px;
+        margin: 0 2px;
+      }
     }
 
     .count-indicator {
@@ -1469,33 +1539,36 @@
     </div>
 
     <!-- Filter Pills -->
-    <div class="filter-pills" id="filterPills">
-      <div class="filter-pill active" data-filter="all">全部 (80)</div>
-      <div class="filter-pill" data-filter="paravozz">Paravozz 车头系列 (25)</div>
+    <div class="filter-pills-wrap">
+      <div class="filter-pills" id="filterPills" role="tablist" aria-label="雾化器分类筛选">
+        <div class="filter-pill active" data-filter="all">全部 (80)</div>
+        <div class="filter-pill" data-filter="paravozz">Paravozz 车头系列 (25)</div>
         <div class="filter-pill" data-filter="yg_creation">YG Creation 系列 (2)</div>
         <div class="filter-pill" data-filter="blm">Bear Lair Mods (BLM) 系列 (4)</div>
-      <div class="filter-pill" data-filter="415">415 Mod 系列 (2)</div>
-      <div class="filter-pill" data-filter="domestic">国内原创名作 (5)</div>
-      <div class="filter-pill" data-filter="rsm">Rocket Science Mods (2)</div>
-      <div class="filter-pill" data-filter="docdave">Doc Dave (2)</div>
-      <div class="filter-pill" data-filter="hellfire">The Attysmith / Hellfire (3)</div>
-      <div class="filter-pill" data-filter="titaniummods">Titanium Mods (1)</div>
-      <div class="filter-pill" data-filter="walker">Walker Mods (1)</div>
-      <div class="filter-pill" data-filter="boostlab">Boost Lab (1)</div>
-      <div class="filter-pill" data-filter="nahual">Nahual Mods (1)</div>
-      <div class="filter-pill" data-filter="steamboy">Steamboy (1)</div>
-      <div class="filter-pill" data-filter="athea">Athea Mods (5)</div>
-      <div class="filter-pill" data-filter="vaponaute">Vaponaute (2)</div>
-      <div class="filter-pill" data-filter="xmv">Xtra Mile Vape (2)</div>
-      <div class="filter-pill" data-filter="va">Vicious Ant (1)</div>
-      <div class="filter-pill" data-filter="satburn">Satburn (1)</div>
-      <div class="filter-pill" data-filter="vwm">VWM (4)</div>
-      <div class="filter-pill" data-filter="origen">Origen Mods (1)</div>
+        <div class="filter-pill" data-filter="415">415 Mod 系列 (2)</div>
+        <div class="filter-pill" data-filter="domestic">国内原创名作 (5)</div>
+        <div class="filter-pill" data-filter="rsm">Rocket Science Mods (2)</div>
+        <div class="filter-pill" data-filter="docdave">Doc Dave (2)</div>
+        <div class="filter-pill" data-filter="hellfire">The Attysmith / Hellfire (3)</div>
+        <div class="filter-pill" data-filter="titaniummods">Titanium Mods (1)</div>
+        <div class="filter-pill" data-filter="walker">Walker Mods (1)</div>
+        <div class="filter-pill" data-filter="boostlab">Boost Lab (1)</div>
+        <div class="filter-pill" data-filter="nahual">Nahual Mods (1)</div>
+        <div class="filter-pill" data-filter="steamboy">Steamboy (1)</div>
+        <div class="filter-pill" data-filter="athea">Athea Mods (5)</div>
+        <div class="filter-pill" data-filter="vaponaute">Vaponaute (2)</div>
+        <div class="filter-pill" data-filter="xmv">Xtra Mile Vape (2)</div>
+        <div class="filter-pill" data-filter="va">Vicious Ant (1)</div>
+        <div class="filter-pill" data-filter="satburn">Satburn (1)</div>
+        <div class="filter-pill" data-filter="vwm">VWM (4)</div>
+        <div class="filter-pill" data-filter="origen">Origen Mods (1)</div>
         <div class="filter-pill" data-filter="ddp">DDP Vape 系列 (2)</div>
         <div class="filter-pill" data-filter="luca">Luca Creations (2)</div>
-      <div class="filter-pill" data-filter="has_reviews">含真实评测文献</div>
-      <div class="filter-pill" data-filter="has_zuosi">含作丝数据</div>
-      <div class="filter-pill" data-filter="has_tanbang">含碳棒数据</div>
+        <div class="filter-divider" aria-hidden="true"></div>
+        <div class="filter-pill filter-pill-feature" data-filter="has_reviews">含真实评测文献</div>
+        <div class="filter-pill filter-pill-feature" data-filter="has_zuosi">含作丝数据</div>
+        <div class="filter-pill filter-pill-feature" data-filter="has_tanbang">含碳棒数据</div>
+      </div>
     </div>
 
     <div class="count-indicator" id="countIndicator">
@@ -2298,6 +2371,7 @@
         pill.classList.add('active');
         activeFilter = pill.dataset.filter;
         updateViews();
+        pill.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
       });
     });
 

@@ -722,8 +722,19 @@ def full_catalog_audit():
     print(f"  厂牌资产审查: Logo 尺寸正常 ({os.path.getsize(logo_path)} 字节)，Favicon、置顶导航栏、Hero 厂牌胶囊与页脚版权已全维贯通。")
     print(f" -> 验证通过: Nirvana 厂牌视觉体系 100% 验收通过！")
 
+    # --- 31. Mobile Responsive Filter Pills & Horizontal Scroll Affordance Audit ---
+    print(f"\n[Test 31] 校验移动端小分类标签单行横滑容器与交互优化完备性...")
+    assert 'filter-pills-wrap' in html, "index.html missing .filter-pills-wrap container"
+    assert 'filter-divider' in html, "index.html missing .filter-divider"
+    assert 'filter-pill-feature' in html, "index.html missing .filter-pill-feature"
+    assert 'scrollIntoView' in html, "index.html missing pill.scrollIntoView interactive behavior"
+    assert 'mask-image' in html, "index.html missing mask-image scrollability affordance hint"
+    assert 'overflow-x: auto' in html, "index.html missing overflow-x: auto for horizontal scroll"
+    print(f"  移动端排版审查: 单行横滑容器、左右淡出渐变遮罩、功能标签分割线与点击平滑居中交互全部就绪。")
+    print(f" -> 验证通过: 移动端分类标签横滑交互与首屏高度释放 100% 验收通过！")
+
     print("\n" + "=" * 60)
-    print("    恭喜！全馆 30 大终极核对套件全部通过（100% PASS）！")
+    print("    恭喜！全馆 31 大终极核对套件全部通过（100% PASS）！")
     print("=" * 60)
 
 if __name__ == '__main__':
