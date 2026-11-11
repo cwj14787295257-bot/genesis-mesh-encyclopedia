@@ -64,8 +64,8 @@ def full_catalog_audit():
 
     # --- 3. Physical Image Files Check ---
     print(f"\n[Test 3] 校验本地图片文件存在性、纯实拍属性(0 SVG)与大小...")
-    print(f" -> 全馆引用唯一样本图片总数: {len(all_images)} 张 (严格要求 282 张纯实拍)")
-    assert len(all_images) == 282, f"Expected exactly 282 unique physical images, got {len(all_images)}"
+    print(f" -> 全馆引用唯一样本图片总数: {len(all_images)} 张 (严格要求 284 张纯实拍)")
+    assert len(all_images) == 284, f"Expected exactly 284 unique physical images, got {len(all_images)}"
     for img_rel in all_images:
         assert not img_rel.endswith('.svg'), f"Non-photo SVG file detected in catalog: {img_rel}"
         img_abs = os.path.join(base_dir, img_rel)
@@ -275,14 +275,16 @@ def full_catalog_audit():
     # Check Babe rectification
     babe = next((m for m in data if m['id'] == 'babe'), None)
     assert babe is not None, "Babe missing from catalog"
-    assert len(babe['images']) == 3, f"Expected 3 unique images for Babe, got {len(babe['images'])}"
+    assert len(babe['images']) == 5, f"Expected 5 unique HD images for Babe, got {len(babe['images'])}"
     assert 'images/babe_afc.jpg' in babe['images']
+    assert 'images/babe_parts.jpg' in babe['images']
+    assert 'images/babe_mod.jpg' in babe['images']
     assert len(babe['reviews']) >= 2
     assert len(babe['zuosi']) >= 1
     assert len(babe['tanbang']) >= 1
     p243 = next((m for m in data if m['id'] == 'paravozz_2_4_3_h'), None)
     assert set(babe['images']).isdisjoint(set(p243['images'])), "Babe and 2.4.3.h still share images!"
-    print(f" -> 验证通过: Babe 货不对板彻底修复，与 Paravozz 2.4.3.h 完全解耦独立！")
+    print(f" -> 验证通过: Babe 升级配备 5 张完整高清多视角实拍图库，与 Paravozz 2.4.3.h 完全解耦独立！")
     print(f" -> 验证通过: Batch 14 四大车头名作全部档案、实拍图库与双模做芯指南 100% 验收通过！")
 
     # --- 17. Batch 15 European Masters Audit (Hellfire + Athea) ---

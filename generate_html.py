@@ -548,7 +548,9 @@ data = [
                 "images": [
                         "images/babe.jpg",
                         "images/babe_deck.jpg",
-                        "images/babe_afc.jpg"
+                        "images/babe_parts.jpg",
+                        "images/babe_afc.jpg",
+                        "images/babe_mod.jpg"
                 ],
                 "dateVerification": {
                         "status": "confirmed",
