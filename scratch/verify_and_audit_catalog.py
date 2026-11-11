@@ -145,6 +145,15 @@ def full_catalog_audit():
     assert 'paravozz_eco_sport' in p_ids
     assert 'paravozz_v0_13_airy' in p_ids
     assert 'paravozz_ghost_sc_dual' in p_ids
+
+    # K5K Authentic Deck & Exploded Parts Verification
+    k5k_deck_hash = get_file_md5(os.path.join(base_dir, 'images/k5k_deck.jpg'))
+    k5k_parts_hash = get_file_md5(os.path.join(base_dir, 'images/k5k_parts.jpg'))
+    assert k5k_deck_hash != "0786f78602b396bb2df3633aa185ea7b", "K5K deck image still points to erroneous Sherif glass-wick setup!"
+    assert k5k_parts_hash != "c98f7e5d2c5cd24e44f15e87f76bb633", "K5K parts image still points to erroneous Sherif setup!"
+    assert k5k_deck_hash == "0a3e183f44b266e661072557be624d9f", f"K5K deck hash mismatch: {k5k_deck_hash}"
+    assert k5k_parts_hash == "5948f51068b956965883127a5e9a6479", f"K5K parts hash mismatch: {k5k_parts_hash}"
+    print(f"  [K5K] 成功剔除玩家异形做芯测试存疑图，正版 Killer Jet²win 阶梯负压电极台与分解结构实拍替换通过。")
     print(f" -> 验证通过: Paravozz 车头系列收录 25 款名作，全谱系架构完备。")
 
     # --- 9. BLM Lineup Audit (4 models) ---
