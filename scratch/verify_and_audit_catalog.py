@@ -18,14 +18,14 @@ def get_file_md5(filepath):
 
 def full_catalog_audit():
     print("=" * 60)
-    print("    网子雾化器图鉴 · 全馆 80 款雾化器零货不对板终极复核与质量验收")
+    print("    网子雾化器图鉴 · 全馆 84 款雾化器零货不对板终极复核与质量验收")
     print("=" * 60)
 
     data = generate_html.data
 
     # --- 1. Catalog Count ---
     print(f"\n[Test 1] 校验全馆收录总数...")
-    assert len(data) == 80, f"Expected 80 models, got {len(data)}"
+    assert len(data) == 84, f"Expected 84 models, got {len(data)}"
     print(f" -> 验证通过: 全馆共收录 {len(data)} 款经典网子名作。")
 
     # --- 2. Specs Completeness ---
@@ -64,8 +64,8 @@ def full_catalog_audit():
 
     # --- 3. Physical Image Files Check ---
     print(f"\n[Test 3] 校验本地图片文件存在性、纯实拍属性(0 SVG)与大小...")
-    print(f" -> 全馆引用唯一样本图片总数: {len(all_images)} 张 (严格要求 284 张纯实拍)")
-    assert len(all_images) == 284, f"Expected exactly 284 unique physical images, got {len(all_images)}"
+    print(f" -> 全馆引用唯一样本图片总数: {len(all_images)} 张 (严格要求 300 张纯实拍)")
+    assert len(all_images) == 300, f"Expected exactly 300 unique physical images, got {len(all_images)}"
     for img_rel in all_images:
         assert not img_rel.endswith('.svg'), f"Non-photo SVG file detected in catalog: {img_rel}"
         img_abs = os.path.join(base_dir, img_rel)
@@ -178,12 +178,15 @@ def full_catalog_audit():
     with open(index_path, 'r', encoding='utf-8') as f:
         html = f.read()
 
-    assert '全部 (80)' in html, "index.html missing '全部 (80)'"
-    assert '正在展示全部 80 款雾化器' in html, "index.html missing '正在展示全部 80 款雾化器'"
-    assert '80 款经典网子雾化器' in html, "index.html missing '80 款经典网子雾化器'"
+    assert '全部 (84)' in html, "index.html missing '全部 (80)'"
+    assert '正在展示全部 84 款雾化器' in html, "index.html missing '正在展示全部 80 款雾化器'"
+    assert '84 款经典网子雾化器' in html, "index.html missing '80 款经典网子雾化器'"
     assert 'VWM (4)' in html, "index.html missing 'VWM (4)'"
     assert 'Athea Mods (5)' in html, "index.html missing 'Athea Mods (5)'"
-    assert 'The Attysmith / Hellfire (3)' in html, "index.html missing 'The Attysmith / Hellfire (3)'"
+    assert 'The Attysmith / Hellfire (4)' in html, "index.html missing 'The Attysmith / Hellfire (4)'"
+    assert 'Rocket Science Mods (3)' in html, "index.html missing 'Rocket Science Mods (3)'"
+    assert 'Steamboy (2)' in html, "index.html missing 'Steamboy (2)'"
+    assert 'House of Hybrids (2)' in html, "index.html missing 'House of Hybrids (2)'"
     assert 'Doc Dave (2)' in html, "index.html missing 'Doc Dave (2)'"
     assert 'Origen Mods (1)' in html, "index.html missing 'Origen Mods (1)'"
     assert 'DDP Vape 系列 (2)' in html, "index.html missing 'DDP Vape 系列 (2)'"
@@ -306,8 +309,8 @@ def full_catalog_audit():
 
     # Verify Hellfire collection
     hellfire_items = [m for m in data if 'hellfire' in m['brand'].lower() or 'attysmith' in m['brand'].lower()]
-    assert len(hellfire_items) == 3, f"Expected 3 Hellfire models, got {len(hellfire_items)}"
-    assert set(m['id'] for m in hellfire_items) == {'hellfire_shorty', 'hellfire_mega', 'hellfire_mini'}
+    assert len(hellfire_items) == 4, f"Expected 4 Hellfire models, got {len(hellfire_items)}"
+    assert set(m['id'] for m in hellfire_items) == {'hellfire_shorty', 'hellfire_mega', 'hellfire_mini', 'hellfire_22'}
     print(f"  Hellfire 系列收录: {[m['name'] for m in hellfire_items]}")
 
     # Verify Athea collection
@@ -557,7 +560,7 @@ def full_catalog_audit():
     print(f" -> 验证通过: Batch 23 经典创世纪四大先驱名作档案、实拍图库与双模做芯指南 100% 验收通过！")
  
     # --- 26. Release Date & Provenance Audit ---
-    print(f"\n[Test 26] 校验全馆 80 款雾化器发布时间规范性 (权威考据年月或严谨暂定标注)...")
+    print(f"\n[Test 26] 校验全馆 84 款雾化器发布时间规范性 (权威考据年月或严谨暂定标注)...")
     date_regex = re.compile(r'^(\d{4}年(1[0-2]|[1-9])月|约 \d{4}年 \(暂定\))$')
     exact_count = 0
     tentative_count = 0
@@ -571,7 +574,7 @@ def full_catalog_audit():
         else:
             exact_count += 1
     print(f"  发布时间考证统计: 确切年月 {exact_count} 款，严谨暂定 {tentative_count} 款 (共 {len(data)} 款)")
-    assert exact_count == 69, f"Expected 69 exact dates, got {exact_count}"
+    assert exact_count == 73, f"Expected 73 exact dates, got {exact_count}"
     assert tentative_count == 11, f"Expected 11 tentative dates, got {tentative_count}"
 
     # Verify compiled index.html contains release date logic and embedded dates
@@ -590,17 +593,17 @@ def full_catalog_audit():
     atomizers_match = re.search(r'const ATOMIZERS = (\[.*?\]);\s*let activeFilter', html, re.DOTALL)
     assert atomizers_match, "Failed to parse ATOMIZERS JSON from index.html"
     index_atomizers = json.loads(atomizers_match.group(1))
-    assert len(index_atomizers) == 80, f"Expected 80 atomizers in index.html, got {len(index_atomizers)}"
+    assert len(index_atomizers) == 84, f"Expected 84 atomizers in index.html, got {len(index_atomizers)}"
     for idx_item in index_atomizers:
         iid = idx_item['id']
         src_item = next(m for m in data if m['id'] == iid)
         assert idx_item['specs']['发布时间'] == src_item['specs']['发布时间'], f"Date mismatch for {iid} between generate_html.py and index.html"
 
     print(f"  编译产物校验: index.html 前端卡片、模态窗与搜索分词逻辑 100% 同步！")
-    print(f" -> 验证通过: 全馆 80 款雾化器全部通过发布时间权威背书与格式审查！")
+    print(f" -> 验证通过: 全馆 84 款雾化器全部通过发布时间权威背书与格式审查！")
 
     # --- 27. Multi-Source Cross-Verification (Primary & Secondary Evidence) Audit ---
-    print(f"\n[Test 27] 校验全馆 80 款雾化器多方权威资料交叉验证 (Primary + Secondary Evidence) 完备性与一致性...")
+    print(f"\n[Test 27] 校验全馆 84 款雾化器多方权威资料交叉验证 (Primary + Secondary Evidence) 完备性与一致性...")
     confirmed_dv_count = 0
     tentative_dv_count = 0
     for item in data:
@@ -628,9 +631,9 @@ def full_catalog_audit():
         assert len(dv['primary']) >= 15, f"{iid} primary citation too brief: '{dv['primary']}'"
         assert len(dv['secondary']) >= 15, f"{iid} secondary citation too brief: '{dv['secondary']}'"
 
-    assert confirmed_dv_count == 69, f"Expected 69 confirmed dateVerification entries, got {confirmed_dv_count}"
+    assert confirmed_dv_count == 73, f"Expected 73 confirmed dateVerification entries, got {confirmed_dv_count}"
     assert tentative_dv_count == 11, f"Expected 11 tentative dateVerification entries, got {tentative_dv_count}"
-    print(f"  双源交叉验证统计: 69 款具备一手原厂/官方编年主证据与独立评测辅证据; 11 款客观暂定并详述考据阻断成因")
+    print(f"  双源交叉验证统计: 73 款具备一手原厂/官方编年主证据与独立评测辅证据; 11 款客观暂定并详述考据阻断成因")
 
     # Check dateVerification persistence in index.html JSON
     for idx_item in index_atomizers:
@@ -638,8 +641,8 @@ def full_catalog_audit():
         src_item = next(m for m in data if m['id'] == iid)
         assert 'dateVerification' in idx_item, f"index.html {iid} missing dateVerification metadata!"
         assert idx_item['dateVerification']['status'] == src_item['dateVerification']['status'], f"dateVerification status mismatch for {iid} in index.html"
-    print(f"  静态编译校验: index.html 底层数据 100% 持久化全馆 80 款双源交叉核验证据链！")
-    print(f" -> 验证通过: 全馆 80 款雾化器多方权威资料交叉验证与依赖材料审计完全合格！")
+    print(f"  静态编译校验: index.html 底层数据 100% 持久化全馆 84 款双源交叉核验证据链！")
+    print(f" -> 验证通过: 全馆 84 款雾化器多方权威资料交叉验证与依赖材料审计完全合格！")
 
     # --- 28. Timeline View & Year Anchors & Sort Order Audit ---
     print(f"\n[Test 28] 校验「时间轴编年史视图」(Timeline View) 与「网格视图」双模切换、年份快速锚点与排序逻辑完备性...")
@@ -660,7 +663,7 @@ def full_catalog_audit():
     for token in required_js_tokens:
         assert token in html, f"index.html missing required JS token: '{token}'"
 
-    # Verify algorithmic sorting of all 80 atomizers
+    # Verify algorithmic sorting of all 84 atomizers
     confirmed_items = []
     tentative_items = []
     for item in data:
@@ -673,7 +676,7 @@ def full_catalog_audit():
         else:
             tentative_items.append(item['id'])
 
-    assert len(confirmed_items) == 69, f"Expected 69 confirmed items for timeline, got {len(confirmed_items)}"
+    assert len(confirmed_items) == 73, f"Expected 73 confirmed items for timeline, got {len(confirmed_items)}"
     assert len(tentative_items) == 11, f"Expected 11 tentative items for timeline, got {len(tentative_items)}"
 
     # Sort ascending
@@ -686,7 +689,7 @@ def full_catalog_audit():
     # Verify year grouping
     years = sorted(list(set(x[1] for x in confirmed_items)))
     assert len(years) == 11, f"Expected 11 distinct timeline years, got {len(years)}"
-    print(f"  时间轴架构校验: 涵盖 {years[0]} 至 {years[-1]} 共 {len(years)} 个历史年份节点，69 款确证名作排布顺畅，11 款独立收录于「年代待考证专区」")
+    print(f"  时间轴架构校验: 涵盖 {years[0]} 至 {years[-1]} 共 {len(years)} 个历史年份节点，73 款确证名作排布顺畅，11 款独立收录于「年代待考证专区」")
     print(f" -> 验证通过: 时间轴编年史视图、双向切换与年代快速导航全部验收通过！")
 
     # --- 29. lieflat-less-ai-tone & Clean Style Compliance Audit ---
@@ -713,7 +716,7 @@ def full_catalog_audit():
                 ai_violations.append((iid, rule, m.group(0)))
 
     assert len(ai_violations) == 0, f"Found AI tone violations in data: {ai_violations}"
-    print(f"  语调审查统计: 全馆 80 款设计要点与考据说明全部通过 lieflat-less-ai-tone 白名单审查（0 翻案腔, 0 破折号, 0 宣传炒作词, 0 感叹号, 0 仿品黑话）")
+    print(f"  语调审查统计: 全馆 84 款设计要点与考据说明全部通过 lieflat-less-ai-tone 白名单审查（0 翻案腔, 0 破折号, 0 宣传炒作词, 0 感叹号, 0 仿品黑话）")
     print(f" -> 验证通过: 全馆界面文案与底层数据彻底消除 AI 痕迹，行文严谨客观！")
 
     # --- 30. Nirvana Brand Integration & Logo Asset Verification ---
@@ -751,15 +754,53 @@ def full_catalog_audit():
     assert 'NIRVANA · 网子图鉴' in html, "index.html missing compact Nirvana title for mobile"
     assert 'nav-subtitle' in html, "index.html missing .nav-subtitle"
     assert 'nav-mobile-badge' in html, "index.html missing .nav-mobile-badge"
-    assert '80 款' in html, "index.html missing 80 款 mobile capsule badge"
+    assert '84 款' in html, "index.html missing 84 款 mobile capsule badge"
     assert 'min-height: 44px' in html or 'height: 44px' in html, "index.html missing 44px compact navbar specification"
     assert 'brand-logo-img {\n        height: 24px' in html or 'brand-logo-img {\n        height: 24px;' in html or '.brand-logo-img' in html, "index.html missing mobile logo resize"
     assert '.logo-badge {\n        display: none;' in html or '.logo-badge { display: none; }' in html or 'display: none' in html, "index.html missing badge hide on mobile"
-    print(f"  顶栏规范审查: 移动端锁定 44px 标准高度，隐藏冗长副标题与长英文标签，单行展示「Logo + NIRVANA · 网子图鉴」与「80 款」微缩计数胶囊，零折行 100% 达标。")
+    print(f"  顶栏规范审查: 移动端锁定 44px 标准高度，隐藏冗长副标题与长英文标签，单行展示「Logo + NIRVANA · 网子图鉴」与「84 款」微缩计数胶囊，零折行 100% 达标。")
     print(f" -> 验证通过: 移动端置顶导航栏 44px 紧凑重构 100% 验收通过！")
 
+    # --- 33. Batch 24 European & American Masters Expansion Audit ---
+    print(f"\n[Test 33] 校验 Batch 24 欧美四大殿堂拓荒旗舰 (ZAU, The Rocket, Hellfire 22, Steamboy 2.1) 完整性...")
+    b24_ids = ['hoh_zau', 'rsm_rocket', 'hellfire_22', 'steamboy_2_1']
+    data_dict = {item['id']: item for item in data}
+
+    for mid in b24_ids:
+        assert mid in data_dict, f"Batch 24 model {mid} missing from dataset!"
+        m = data_dict[mid]
+        # Specs check
+        assert len(m['quickSpecs']) == 3, f"{mid} quickSpecs length != 3"
+        assert m['specs']['发布时间'], f"{mid} missing release date"
+        assert '暂定' not in m['specs']['发布时间'], f"{mid} release date should be confirmed"
+        assert m['dateVerification']['status'] == 'confirmed', f"{mid} dateVerification status != confirmed"
+        assert len(m['dateVerification']['primary']) >= 15, f"{mid} primary evidence too short"
+        assert len(m['dateVerification']['secondary']) >= 15, f"{mid} secondary evidence too short"
+        # Images check
+        assert len(m['images']) == 4, f"{mid} must have 4 images, got {len(m['images'])}"
+        for img_path in m['images']:
+            full_p = os.path.join(base_dir, img_path)
+            assert os.path.exists(full_p), f"{mid} image missing: {img_path}"
+            assert os.path.getsize(full_p) > 5000, f"{mid} image too small: {img_path}"
+            assert not img_path.endswith('.svg'), f"{mid} image cannot be svg: {img_path}"
+        # Reviews, zuosi, tanbang check
+        assert len(m['reviews']) >= 1, f"{mid} missing authentic reviews"
+        assert len(m['zuosi']) >= 2, f"{mid} missing zuosi build guide"
+        assert len(m['tanbang']) >= 2, f"{mid} missing tanbang build guide"
+
+    # Verify brand pills in HTML
+    assert 'House of Hybrids (2)' in html, "index.html missing House of Hybrids (2) pill"
+    assert 'Rocket Science Mods (3)' in html, "index.html missing Rocket Science Mods (3) pill"
+    assert 'The Attysmith / Hellfire (4)' in html, "index.html missing The Attysmith / Hellfire (4) pill"
+    assert 'Steamboy (2)' in html, "index.html missing Steamboy (2) pill"
+    assert "activeFilter === 'hoh'" in html, "index.html missing hoh filter branch"
+
+    print(f"  Batch 24 实体审计: ZAU (4.0ml 石英美系510标准), The Rocket (RSM开山微型内仓作), Hellfire 22 (22mm极紧凑Slam聚气仓), Steamboy 2.1 (黄铜微孔无级气调环)")
+    print(f"  规格与图文资产: 4 款新机 16 张高清纯实拍全部达标，双模搭建指南与文献交叉核验无缝闭环！")
+    print(f" -> 验证通过: Batch 24 欧美四大殿堂拓荒旗舰 100% 验收通过！")
+
     print("\n" + "=" * 60)
-    print("    恭喜！全馆 32 大终极核对套件全部通过（100% PASS）！")
+    print("    恭喜！全馆 33 大终极核对套件全部通过（100% PASS）！")
     print("=" * 60)
 
 if __name__ == '__main__':
