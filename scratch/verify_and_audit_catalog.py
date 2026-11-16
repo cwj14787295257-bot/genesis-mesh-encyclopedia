@@ -64,8 +64,8 @@ def full_catalog_audit():
 
     # --- 3. Physical Image Files Check ---
     print(f"\n[Test 3] 校验本地图片文件存在性、纯实拍属性(0 SVG)与大小...")
-    print(f" -> 全馆引用唯一样本图片总数: {len(all_images)} 张 (严格要求 396 张纯实拍)")
-    assert len(all_images) == 396, f"Expected exactly 380 unique physical images, got {len(all_images)}"
+    print(f" -> 全馆引用唯一样本图片总数: {len(all_images)} 张 (严格要求 404 张纯实拍)")
+    assert len(all_images) == 404, f"Expected exactly 380 unique physical images, got {len(all_images)}"
     for img_rel in all_images:
         assert not img_rel.endswith('.svg'), f"Non-photo SVG file detected in catalog: {img_rel}"
         img_abs = os.path.join(base_dir, img_rel)
@@ -186,7 +186,7 @@ def full_catalog_audit():
     assert 'The Attysmith / Hellfire (4)' in html, "index.html missing 'The Attysmith / Hellfire (4)'"
     assert 'Rocket Science Mods (3)' in html, "index.html missing 'Rocket Science Mods (3)'"
     assert 'Steamboy (2)' in html, "index.html missing 'Steamboy (2)'"
-    assert 'House of Hybrids (2)' in html, "index.html missing 'House of Hybrids (2)'"
+    assert 'House of Hybrids (3)' in html, "index.html missing 'House of Hybrids (3)'"
     assert 'Doc Dave (3)' in html, "index.html missing 'Doc Dave (3)'"
     assert 'Vaponaute (3)' in html, "index.html missing 'Vaponaute (3)'"
     assert 'Senio Mods (1)' in html, "index.html missing 'Senio Mods (1)'"
@@ -791,7 +791,7 @@ def full_catalog_audit():
         assert len(m['tanbang']) >= 2, f"{mid} missing tanbang build guide"
 
     # Verify brand pills in HTML
-    assert 'House of Hybrids (2)' in html, "index.html missing House of Hybrids (2) pill"
+    assert 'House of Hybrids (3)' in html or 'House of Hybrids (2)' in html, "index.html missing House of Hybrids pill"
     assert 'Rocket Science Mods (3)' in html, "index.html missing Rocket Science Mods (3) pill"
     assert 'The Attysmith / Hellfire (4)' in html, "index.html missing The Attysmith / Hellfire (4) pill"
     assert 'Steamboy (2)' in html, "index.html missing Steamboy (2) pill"
@@ -1000,11 +1000,50 @@ def full_catalog_audit():
     print(f" -> 验证通过: Batch 29 近代德意波兰高阶双模与创世纪名作 100% 验收通过！")
 
     # --- 39. Batch 30 East Asian Japanese & Korean Genesis Masters (Monad, Monas, Chimera, Pico) Audit ---
-    print(f"\n[Test 39] 校验 Batch 30 东亚日韩极简高定创世纪名作 (Monad, Monas, Chimera, Pico) 完整性...")
-    b30_ids = ['xmv_monad', 'xmv_monas', 'chimera_genesis', 'yellowkiss_pico']
+    print("\n[Test 39] 校验 Batch 30 东亚日韩极简高定创世纪名作 (Monad, Monas, Chimera, Pico) 完整性...")
+    b30_ids = ['chimera_genesis', 'yellowkiss_pico', 'monad', 'monas']
 
     for mid in b30_ids:
         assert mid in data_dict, f"Batch 30 model {mid} missing from dataset!"
+        m = data_dict[mid]
+        # Specs check
+        assert len(m['quickSpecs']) == 3, f"{mid} quickSpecs length != 3"
+        assert m['specs']['发布时间'], f"{mid} missing release date"
+        assert '暂定' not in m['specs']['发布时间'], f"{mid} release date should be confirmed"
+        assert m['dateVerification']['status'] == 'confirmed', f"{mid} dateVerification status != confirmed"
+        assert len(m['dateVerification']['primary']) >= 15, f"{mid} primary evidence too short"
+        assert len(m['dateVerification']['secondary']) >= 15, f"{mid} secondary evidence too short"
+        # Images check: monad and monas have 7 images; chimera and pico have 4
+        expected_imgs = 7 if mid in ['monad', 'monas'] else 4
+        assert len(m['images']) == expected_imgs, f"{mid} must have {expected_imgs} images, got {len(m['images'])}"
+        for img_path in m['images']:
+            full_p = os.path.join(base_dir, img_path)
+            assert os.path.exists(full_p), f"{mid} image missing: {img_path}"
+            assert os.path.getsize(full_p) > 5000, f"{mid} image too small: {img_path}"
+            assert not img_path.endswith('.svg'), f"{mid} image cannot be svg: {img_path}"
+        # Reviews, zuosi, tanbang check
+        assert len(m['reviews']) >= 1, f"{mid} missing authentic reviews"
+        assert len(m['zuosi']) >= 2, f"{mid} missing zuosi build guide"
+        assert len(m['tanbang']) >= 2, f"{mid} missing tanbang build guide"
+
+    # Verify brand pills & filter branches in HTML
+    assert 'Xtra Mile Vape (2)' in html, "index.html missing Xtra Mile Vape (2) pill"
+    assert 'YellowKiss (1)' in html, "index.html missing YellowKiss (1) pill"
+    assert 'Chimera (1)' in html, "index.html missing Chimera (1) pill"
+    assert "activeFilter === 'xmv'" in html, "index.html missing xmv filter branch"
+    assert "activeFilter === 'yellowkiss'" in html, "index.html missing yellowkiss filter branch"
+    assert "activeFilter === 'chimera'" in html, "index.html missing chimera filter branch"
+
+    print(f"  Batch 30 实体审计: Monad (韩国 22mm 7图典藏纯血创世纪), Monas (韩国 22mm 7图典藏顶盖快注名作), Chimera Genesis (日本首款纯国产自主设计与制造开山鼻祖), Pico (韩国微型聚气仓立式网子代表作)")
+    print(f"  东亚名家阵容: Xtra Mile Vape (2), YellowKiss (1), Chimera (1) 三大独立品牌筛选胶囊与双模做芯指南 100% 验收通过！")
+    print(f" -> 验证通过: Batch 30 东亚日韩极简高定创世纪名作 100% 验收通过！")
+
+    # --- 40. Batch 31 Catalog Deduplication & Hall of Fame Masterworks (Zenesis & 415BB S61) Audit ---
+    print("\n[Test 40] 校验 Batch 31 全馆深度去重升格与殿堂双星 (Zenesis Standard, 415BB S61) 完整性...")
+    b31_ids = ['hoh_zenesis', 'four_one_five_s61_bb']
+
+    for mid in b31_ids:
+        assert mid in data_dict, f"Batch 31 model {mid} missing from dataset!"
         m = data_dict[mid]
         # Specs check
         assert len(m['quickSpecs']) == 3, f"{mid} quickSpecs length != 3"
@@ -1025,20 +1064,26 @@ def full_catalog_audit():
         assert len(m['zuosi']) >= 2, f"{mid} missing zuosi build guide"
         assert len(m['tanbang']) >= 2, f"{mid} missing tanbang build guide"
 
-    # Verify brand pills & filter branches in HTML
-    assert 'Xtra Mile Vape (2)' in html, "index.html missing Xtra Mile Vape (2) pill"
-    assert 'YellowKiss (1)' in html, "index.html missing YellowKiss (1) pill"
-    assert 'Chimera (1)' in html, "index.html missing Chimera (1) pill"
-    assert "activeFilter === 'xmv'" in html, "index.html missing xmv filter branch"
-    assert "activeFilter === 'yellowkiss'" in html, "index.html missing yellowkiss filter branch"
-    assert "activeFilter === 'chimera'" in html, "index.html missing chimera filter branch"
+    # Verify deduplication integrity: 108 models, 0 duplicate names, 0 duplicate IDs
+    all_model_ids = [x['id'] for x in data]
+    all_model_names = [x['name'] for x in data]
+    assert len(all_model_ids) == 108, f"Expected 108 models, got {len(all_model_ids)}"
+    assert len(set(all_model_ids)) == 108, f"Duplicate IDs detected: {len(all_model_ids)} vs {len(set(all_model_ids))}"
+    assert len(set(all_model_names)) == 108, f"Duplicate names detected: {len(all_model_names)} vs {len(set(all_model_names))}"
+    assert 'xmv_monad' not in all_model_ids, "xmv_monad duplicate slot not properly removed"
+    assert 'xmv_monas' not in all_model_ids, "xmv_monas duplicate slot not properly removed"
 
-    print(f"  Batch 30 实体审计: Monad (韩国 22mm 极致紧凑聚气纯血创世纪), Monas (韩国 22mm 偏心网孔与上盖创新名作), Chimera Genesis (日本首款纯国产自主设计与制造开山鼻祖), Pico (韩国微型聚气仓立式网子代表作)")
-    print(f"  东亚名家阵容: Xtra Mile Vape (2), YellowKiss (1), Chimera (1) 三大独立品牌筛选胶囊与双模做芯指南 100% 验收通过！")
-    print(f" -> 验证通过: Batch 30 东亚日韩极简高定创世纪名作 100% 验收通过！")
+    # Verify brand pills & filter branches in HTML
+    assert 'House of Hybrids (3)' in html, "index.html missing House of Hybrids (3) pill"
+    assert '415 Mod 系列 (3)' in html, "index.html missing 415 Mod 系列 (3) pill"
+    assert len(all_images) == 404, f"Expected 404 unique images, got {len(all_images)}"
+
+    print(f"  Batch 31 实体审计: Zenesis Standard (美系 316LVM 创世纪机械一体机开山鼻祖), 415BB S61 (日本 415 纯血立式网子 Boro 桥梁)")
+    print(f"  全馆升格指标: 全馆 108 款绝对唯一且零冗余，Monad 与 Monas 双双升格为 7 图全模态典藏，实拍图库正式突破 400 张大关（404 张纯实拍）！")
+    print(f" -> 验证通过: Batch 31 全馆深度去重升格与殿堂双星 100% 验收通过！")
 
     print("\n" + "=" * 60)
-    print("    恭喜！全馆 39 大终极核对套件全部通过（100% PASS）！")
+    print("    恭喜！全馆 40 大终极核对套件全部通过（100% PASS）！")
     print("=" * 60)
 
 if __name__ == '__main__':
