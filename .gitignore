@@ -16,6 +16,7 @@ ENV/
 # Local scratch & temporary migration scripts
 scratch/*
 !scratch/verify_and_audit_catalog.py
+!scratch/purged_non_genesis_memo.json
 
 # Temporary debug images & logs
 20a87f6d3b5d71d60f76d0ce1b71680b.png

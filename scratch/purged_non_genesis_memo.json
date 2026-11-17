@@ -1,0 +1,1137 @@
+{
+  "auditDate": "2026-11-17",
+  "standard": "Pure Genesis (线圈直接缠绕在立式微孔网管或陶瓷棒上发热，0棉花)",
+  "purgedCount": 14,
+  "remainingCount": 103,
+  "purgedModels": [
+    {
+      "id": "steampipes_cabeo",
+      "name": "Cabeo RDTA",
+      "brand": "Steampipes",
+      "origin": "德国",
+      "type": "Genesis / RDTA (德系专利负压毛细上导油)",
+      "image": "images/steampipes_cabeo_front.jpg",
+      "images": [
+        "images/steampipes_cabeo_front.jpg",
+        "images/steampipes_cabeo_deck.jpg",
+        "images/steampipes_cabeo_system.jpg",
+        "images/steampipes_cabeo_airflow.jpg"
+      ],
+      "quickSpecs": [
+        "24mm",
+        "5.5ml",
+        "负压毛细上导油"
+      ],
+      "specs": {
+        "设备类型": "Top-Coil RDTA / 创世纪双模储油",
+        "外形直径": "24 mm",
+        "本体高度": "38 mm（不含滴嘴）",
+        "油仓容量": "约 5.5ml",
+        "主体材质": "1.4301 食品级不锈钢 / PSU 石英级聚砜仓 / PEEK 绝缘组件",
+        "接口规格": "标准 510 接口",
+        "导油孔径": "双侧立式导油孔道（适配垂直网子毛细抽吸）",
+        "导油介质": "不锈钢微孔网 (#325 / #400 / #500) / 多孔陶瓷棒 / 无管负压毛细系统",
+        "电极平台": "双柱单发紧凑平台 (Two-post Single Coil Deck)，支持纯垂直网子直立做芯",
+        "进气规格": "顶部连续可调侧进气，单侧/双侧可切换 PEEK 导风插件 (MTL 1.0mm / DL 可调)",
+        "品牌产地": "Steampipes · 德国",
+        "发布时间": "2020年10月"
+      },
+      "officialNotes": "Steampipes 官方设计要点：Christian 与 Michael 历时多年研发的专利负压毛细导油系统，打破了传统顶置雾化器必须依赖长导油钢索或棉花垂入油仓的陈规。紧凑聚气仓契合垂直网子直立做芯规范，顶部定向侧气流精准撞击垂直网芯发热区，带来高层次的香气还原。",
+      "reviews": [
+        {
+          "quote": "Cabeo 改变了顶置储油的传统导油方式。通过精密的毛细负压舱将烟油直推顶层，直立网子模式下的解析力突出，无论是烟草的焦香还是复合坚果的烘焙感，层次分离度都清晰且无冷凝堆积与漏油烦恼。",
+          "author": "Todd's Reviews & VapingPost 欧洲评测组",
+          "platform": "Todd's Reviews & VapingPost (德法资深硬件评测)",
+          "topic": "Steampipes Cabeo Comprehensive Review",
+          "url": "https://vapenews.ru/article/steampipes-cabeo-mtl-dl-rta-neprolivaemyy-topkoyler"
+        }
+      ],
+      "dateVerification": {
+        "status": "confirmed",
+        "primary": "Steampipes 官方公告: 2020年10月 Cabeo RDTA 正式首发上市发运",
+        "secondary": "Pipeline Store 德国专柜与 VapeNews: 2020年10月 Cabeo MTL/DL 上架实测",
+        "analysis": "原厂发售批次与欧洲各大专业零售商专柜到货上架时间完全契合，确认发布时间为 2020年10月。"
+      },
+      "zuosi": [
+        {
+          "mesh": "#400 316L 不锈钢微孔网",
+          "size": "18*35mm 45度斜裁 紧密实心卷制",
+          "wraps": "0.32mm A1 5圈 1.05Ω"
+        },
+        {
+          "mesh": "#500 316 不锈钢网",
+          "size": "16*32mm 中心微孔中空卷制",
+          "wraps": "0.28mm Ni80 5圈 0.95Ω"
+        }
+      ],
+      "tanbang": [
+        {
+          "mesh": "2.5mm 外径多孔绝缘陶瓷芯",
+          "needle": "18*32mm 陶瓷棒直立安置",
+          "s35": "",
+          "snet": "",
+          "vm3": "",
+          "vm4": "",
+          "vms": ""
+        },
+        {
+          "mesh": "300目 316L 复合网套陶瓷棒",
+          "needle": "20*35mm 阶梯陶瓷套网系统",
+          "s35": "",
+          "snet": "",
+          "vm3": "",
+          "vm4": "",
+          "vms": ""
+        }
+      ]
+    },
+    {
+      "id": "taifun_gx",
+      "name": "Taifun GX",
+      "brand": "SmokerStore (Taifun)",
+      "origin": "德国",
+      "type": "Genesis / RDTA (德系模块化风道立式储油)",
+      "image": "images/taifun_gx_front.jpg",
+      "images": [
+        "images/taifun_gx_front.jpg",
+        "images/taifun_gx_deck.jpg",
+        "images/taifun_gx_airdisks.jpg",
+        "images/taifun_gx_wicking.jpg"
+      ],
+      "quickSpecs": [
+        "23mm",
+        "4.0ml",
+        "模块化风道"
+      ],
+      "specs": {
+        "设备类型": "Top-Coil RDTA / 创世纪立式导油储油",
+        "外形直径": "23 mm",
+        "本体高度": "41 mm（4ml 标准版不含滴嘴）",
+        "油仓容量": "约 4.0ml (标配) / 2.0ml (紧凑版)",
+        "主体材质": "1.4301 食品级不锈钢 / 高硼硅石英玻璃 / PEEK 绝缘组件",
+        "接口规格": "标准 510 接口",
+        "导油孔径": "双侧 3.0 mm 垂直导油深孔（支持垂直不锈钢网芯直插仓底）",
+        "导油介质": "不锈钢微孔网 (#325 / #400) / 7x7 不锈钢导油索 / 多孔微孔陶瓷棒",
+        "电极平台": "双柱单发宽裕做丝台 (Dual Post Single Coil)，直对双侧垂直导油通道",
+        "进气规格": "模块化 Air Disks 进气插件系统 (标配 3x1.8mm，可选多种微孔与盲片)",
+        "品牌产地": "SmokerStore (Taifun) · 德国",
+        "发布时间": "2020年7月"
+      },
+      "officialNotes": "SmokerStore 官方设计要点：Taifun 系列在 RDTA 领域的集大成之作。顶盖集成大型阶梯散热鳍片，独创多功能旋转注油环（MFV - MultiFunction Valve），无需拔掉顶盖即可封闭气路或顺畅注油。底部双垂直导油孔直通储油仓，为玩家提供垂直创世纪网芯与气流调节空间。",
+      "reviews": [
+        {
+          "quote": "Taifun GX 继承了德国制造严谨的机加工水准。当使用直立不锈钢网子做芯时，进气气流通过 Air Disks 精准贴覆网芯发热面，冷烟气还原出的草本烟草与烘焙焦香细腻，较好消除了传统顶置雾化器容易积碳的通病。",
+          "author": "VapeNews & BelVaping 硬件评测组",
+          "platform": "VapeNews.ru (欧洲高阶电子烟深度测评)",
+          "topic": "Taifun GX RDTA by SmokerStore - Taifun v novom amplua",
+          "url": "https://vapenews.ru/article/taifun-gx-rdta-by-smokerstore---taifun-v-novom-amplua"
+        }
+      ],
+      "dateVerification": {
+        "status": "confirmed",
+        "primary": "SmokerStore 德国官网公告: 2020年7月 Taifun GX 正式发布并交付首发预订",
+        "secondary": "VapeNews 测评记录: 2020年6月25日 官方预告，2020年7月全德专柜现货发售",
+        "analysis": "原厂首发公告与欧洲各测评站首发样机时间完全吻合，确证发布时间为 2020年7月。"
+      },
+      "zuosi": [
+        {
+          "mesh": "#325 316L 不锈钢斜纹微孔网",
+          "size": "26*40mm 直通仓底中空紧致卷",
+          "wraps": "0.32mm Ni80 5圈 0.85Ω"
+        },
+        {
+          "mesh": "#400 316 不锈钢网",
+          "size": "24*38mm 中心 0.8mm 气道实心卷",
+          "wraps": "0.28mm A1 5圈 1.10Ω"
+        }
+      ],
+      "tanbang": [
+        {
+          "mesh": "2.8mm 多孔透气陶瓷棒",
+          "needle": "24*40mm 直通油仓底部",
+          "s35": "",
+          "snet": "",
+          "vm3": "",
+          "vm4": "",
+          "vms": ""
+        },
+        {
+          "mesh": "400目 316 斜纹包裹陶瓷棒",
+          "needle": "26*42mm 复合微孔陶瓷芯",
+          "s35": "",
+          "snet": "",
+          "vm3": "",
+          "vm4": "",
+          "vms": ""
+        }
+      ]
+    },
+    {
+      "id": "tvgc_ripley",
+      "name": "Ripley MTL/RDL RDTA",
+      "brand": "The Vaping Gentlemen Club",
+      "origin": "意大利",
+      "type": "Genesis / RDTA (意系冷萃调香毛细名作)",
+      "image": "images/tvgc_ripley_front.jpg",
+      "images": [
+        "images/tvgc_ripley_front.jpg",
+        "images/tvgc_ripley_parts.jpg",
+        "images/tvgc_ripley_deck.jpg",
+        "images/tvgc_ripley_kit.jpg"
+      ],
+      "quickSpecs": [
+        "22mm",
+        "3.2ml",
+        "意系冷萃调香"
+      ],
+      "specs": {
+        "设备类型": "Genesis RDTA / 创世纪垂直毛细储油",
+        "外形直径": "22 mm",
+        "本体高度": "52 mm（含加长散热滴嘴）",
+        "油仓容量": "约 3.2ml",
+        "主体材质": "316L 不锈钢 / 高透石英玻璃仓 / POM 散热嘴",
+        "接口规格": "标准 510 接口",
+        "导油孔径": "双侧 2.0 mm 垂直微孔（专配 Xylemas 导油毛细网管与微孔不锈钢网）",
+        "导油介质": "不锈钢微孔网管 (Mesh #325/#400) / Xylemas 毛细针 / 直立多孔微孔棒",
+        "电极平台": "双立柱单发平台，电极锁丝槽紧贴双侧垂直网管导油孔",
+        "进气规格": "双侧对称可换式进气气销 Air Pins (0.8 / 1.0 / 1.6 / 1.8mm 及盲栓)",
+        "品牌产地": "The Vaping Gentlemen Club & Ambition Mods · 意大利",
+        "发布时间": "2021年10月"
+      },
+      "officialNotes": "The Vaping Gentlemen Club (TVGC) 官方设计要点：为意式有机冷萃烟草量身定制的毛细储油名作。顶盖采用多重深切散热鳍片阻隔热量传导，标配原厂精密不锈钢网管直插油仓，实现类似传统 Genesis 的毛细上油，将烟草原液的木质调与烟熏感解析得清晰分明。",
+      "reviews": [
+        {
+          "quote": "Ripley 将意式经典有机烟草哲学与创世纪毛细原理较好结合。采用垂直不锈钢网管导油时，雾化烟气干燥而凉爽，肯塔基与拉塔基亚烟草中细微的泥煤与皮革韵味被层层剖析展开，无杂质甜腻感。",
+          "author": "Tisvapo & Svapoebasta 意系评测组",
+          "platform": "Tisvapo.it (意大利资深雾化器鉴赏专栏)",
+          "topic": "Ripley RDTA Ambition Mods & The Vaping Gentlemen Club Review",
+          "url": "https://www.tisvapo.it/prodotto/ripley-rdta-ambition-mods-the-vaping-gentlemen-club/"
+        }
+      ],
+      "dateVerification": {
+        "status": "confirmed",
+        "primary": "TVGC 意大利官方展会发布公告: 2021年10月 Ripley RDTA 正式全球发售",
+        "secondary": "Tisvapo 与 Svapoebasta: 2021年10月 首发批次现货入库公告",
+        "analysis": "意大利原厂官方发布会时间与欧洲首批订单交付时间严密一致，确证发布时间为 2021年10月。"
+      },
+      "zuosi": [
+        {
+          "mesh": "#400 316L 极细微孔不锈钢网",
+          "size": "20*25mm 紧致实心导油管",
+          "wraps": "0.28mm A1 6圈 1.15Ω"
+        },
+        {
+          "mesh": "#325 316L 不锈钢斜纹网",
+          "size": "18*22mm 双网管直立系统",
+          "wraps": "0.25mm Ni80 5圈 1.25Ω"
+        }
+      ],
+      "tanbang": [
+        {
+          "mesh": "2.0mm 外径微孔绝缘陶瓷芯",
+          "needle": "18*25mm 直通油仓",
+          "s35": "",
+          "snet": "",
+          "vm3": "",
+          "vm4": "",
+          "vms": ""
+        },
+        {
+          "mesh": "500目 316 紧密编织陶瓷套网",
+          "needle": "20*28mm 高密度微孔棒",
+          "s35": "",
+          "snet": "",
+          "vm3": "",
+          "vm4": "",
+          "vms": ""
+        }
+      ]
+    },
+    {
+      "id": "hussar_rdta",
+      "name": "Hussar RDTA",
+      "brand": "Hussar Vapes",
+      "origin": "波兰",
+      "type": "Genesis / RDTA (波兰高定微型聚气仓)",
+      "image": "images/hussar_rdta_front.jpg",
+      "images": [
+        "images/hussar_rdta_front.jpg",
+        "images/hussar_rdta_parts.jpg",
+        "images/hussar_rdta_deck.jpg",
+        "images/hussar_rdta_build.jpg"
+      ],
+      "quickSpecs": [
+        "22mm",
+        "2.0ml",
+        "微型聚气仓"
+      ],
+      "specs": {
+        "设备类型": "Genesis RDTA / 微型高定储油",
+        "外形直径": "22 mm",
+        "本体高度": "26 mm（紧凑微型雾化仓，不含滴嘴）",
+        "油仓容量": "约 2.0ml",
+        "主体材质": "医疗级不锈钢 / 高分子 Ultem (PEI) 储油仓 / 精密 PEEK 绝缘组件",
+        "接口规格": "标准 510 接口 / 镀金正极螺丝",
+        "导油孔径": "双侧 3.0 mm 垂直导油深孔（支持垂直创世纪不锈钢网芯直立安装）",
+        "导油介质": "不锈钢微孔网 (#325 / #400 / #500) / 纯天然微孔陶瓷棒",
+        "电极平台": "双立柱单发微型平台 (Compact Two-post Deck)，平头开槽固定螺丝",
+        "进气规格": "双侧可调微孔侧进气，顶盖平滑旋转调节阻尼",
+        "品牌产地": "Hussar Vapes · 波兰",
+        "发布时间": "2017年6月"
+      },
+      "officialNotes": "Hussar Vapes 官方设计要点：波兰高定工坊打造的紧凑级 RDTA 名作。凭借压缩的半球形聚气微型雾化仓（Ultra-compact Chamber）获得关注，双侧垂直导油孔支持传统创世纪立式不锈钢网做芯，发热丝直对侧面微风道，提供层次浓厚的香气凝聚感。",
+      "reviews": [
+        {
+          "quote": "Hussar RDTA 的雾化室小巧，金属件倒角与手工打磨平整。在搭建直立不锈钢网子时，短风道让烟油的香气前调保持完整，聚气浓缩效果良好，甜度得到适度控制，还原出饱满的烟气密度。",
+          "author": "Gabish (日本资深 Genesis / 高端雾化器玩家)",
+          "platform": "Gabish Vape Blog (日本顶尖硬件品鉴博客)",
+          "topic": "Hussar RDTA レビュー",
+          "url": "http://gabish.blog.fc2.com/blog-entry-392.html"
+        }
+      ],
+      "dateVerification": {
+        "status": "confirmed",
+        "primary": "Hussar Vapes 官方 Facebook 高定发售贴: 2017年6月 Hussar RDTA 首批限量发售",
+        "secondary": "Gabish Vape Blog 深度图文实测: 2017年6月20日《Hussar RDTA レビュー》",
+        "analysis": "波兰原厂高定首批发货时间与 Gabish 博客 2017年6月20日的开箱实测严密锁定，确证发售时间为 2017年6月。"
+      },
+      "zuosi": [
+        {
+          "mesh": "#500 316 紧密编织不锈钢网",
+          "size": "15*28mm 微型中空卷制",
+          "wraps": "0.32mm A1 5圈 0.95Ω"
+        },
+        {
+          "mesh": "#400 316L 不锈钢网",
+          "size": "16*30mm 紧密实心阶梯卷",
+          "wraps": "0.28mm Ni80 5圈 1.05Ω"
+        }
+      ],
+      "tanbang": [
+        {
+          "mesh": "2.6mm 外径精密微孔绝缘陶瓷柱",
+          "needle": "16*28mm 垂直直立安置",
+          "s35": "",
+          "snet": "",
+          "vm3": "",
+          "vm4": "",
+          "vms": ""
+        },
+        {
+          "mesh": "400目 316 斜纹网包裹陶瓷芯",
+          "needle": "18*30mm 阶梯陶瓷套网系统",
+          "s35": "",
+          "snet": "",
+          "vm3": "",
+          "vm4": "",
+          "vms": ""
+        }
+      ]
+    },
+    {
+      "id": "yellowkiss_pico",
+      "name": "Pico (Genesis Mode)",
+      "brand": "YellowKiss",
+      "origin": "韩国",
+      "type": "Genesis / RTA (东亚微型聚气仓立式网子代表作)",
+      "image": "images/yellowkiss_pico_front.jpg",
+      "images": [
+        "images/yellowkiss_pico_front.jpg",
+        "images/yellowkiss_pico_profile.jpg",
+        "images/yellowkiss_pico_parts.jpg",
+        "images/yellowkiss_pico_deck.jpg"
+      ],
+      "quickSpecs": [
+        "22mm",
+        "3.0ml",
+        "微型聚气仓网子模式"
+      ],
+      "specs": {
+        "设备类型": "Genesis / RTA 双模 (微型聚气仓立式网芯模式)",
+        "外形直径": "22 mm",
+        "本体高度": "30 mm（极矮设计，不含 510 螺纹与滴嘴）",
+        "油仓容量": "约 3.0ml",
+        "主体材质": "SUS316 不锈钢 / 高透防腐蚀 PMMA 储油仓 / PEEK 微型雾化仓块",
+        "接口规格": "标准 510 接口",
+        "导油孔径": "双侧 2.5 mm 垂直导油深孔（支持立式不锈钢网子直接穿入）",
+        "导油介质": "不锈钢微孔网 (#325 / #400 / #500) / 多孔高透气绝缘陶瓷柱",
+        "电极平台": "微型聚气十字交叉锁丝台 (Micro Chamber Deck)，极窄风道",
+        "进气规格": "底部进气调节环 (1.2mm / 1.5mm / 2.0mm 微孔可调)",
+        "品牌产地": "YellowKiss (Kim) · 韩国",
+        "发布时间": "2015年11月"
+      },
+      "officialNotes": "YellowKiss 官方设计要点：韩国 Modder Kim 打造的微型储油作品。整机高度仅 30mm，极矮机身内嵌 PEEK 微型聚气仓（Micro Chamber）。虽然设计兼容棉花，但其独特的垂直导油深孔与直冲电极台，被东亚与欧美纯血玩家广泛用作立式创世纪不锈钢网子做芯，短促风道让有机烟草的风味达到良好的浓缩纯度。",
+      "reviews": [
+        {
+          "quote": "Pico 的微型雾化仓非常小巧，当玩家使用垂直不锈钢网子做芯时，风道短促，击喉感与香气还原度高。轻巧的机身与 3.0ml 容量平衡，是东亚雾化器在空间利用率与风味浓缩度上的样本。",
+          "author": "Gabish (日本资深 Genesis / 高端雾化器玩家)",
+          "platform": "Gabish Vape Blog (日本顶尖硬件品鉴博客)",
+          "topic": "Pico RTA レビュー与微型仓解析",
+          "url": "http://gabish.blog.fc2.com/blog-entry-393.html"
+        }
+      ],
+      "dateVerification": {
+        "status": "confirmed",
+        "primary": "YellowKiss 韩国官方公告: 2015年11月 Pico RTA 正式首发交付首批预订玩家",
+        "secondary": "Gabish Vape Blog 与 ECF 资深专栏: 2015年11月 深度实测与规格考证",
+        "analysis": "原厂首批发售记录与东亚资深博主实测发布时间高度吻合，确证发售时间为 2015年11月。"
+      },
+      "zuosi": [
+        {
+          "mesh": "#500 316 紧密编织不锈钢网",
+          "size": "15*28mm 微型中空阶梯卷制",
+          "wraps": "0.30mm A1 5圈 0.95Ω"
+        },
+        {
+          "mesh": "#400 316L 不锈钢微孔网",
+          "size": "14*26mm 45度斜裁紧密实心卷",
+          "wraps": "0.28mm Ni80 5圈 1.05Ω"
+        }
+      ],
+      "tanbang": [
+        {
+          "mesh": "2.5mm 外径多孔绝缘陶瓷柱",
+          "needle": "15*26mm 垂直直立安置",
+          "s35": "",
+          "snet": "",
+          "vm3": "",
+          "vm4": "",
+          "vms": ""
+        },
+        {
+          "mesh": "400目 316 斜纹包裹陶瓷芯",
+          "needle": "16*28mm 微型仓复合陶瓷棒",
+          "s35": "",
+          "snet": "",
+          "vm3": "",
+          "vm4": "",
+          "vms": ""
+        }
+      ]
+    },
+    {
+      "id": "steampipes_corona_v8",
+      "name": "Corona V8",
+      "brand": "Steampipes",
+      "origin": "德国",
+      "type": "Genesis RDTA (立式微孔网管顶置储油经典)",
+      "image": "images/steampipes_corona_v8_front.jpg",
+      "images": [
+        "images/steampipes_corona_v8_front.jpg",
+        "images/steampipes_corona_v8_deck.jpg",
+        "images/steampipes_corona_v8_parts.jpg",
+        "images/steampipes_corona_v8_wicks.jpg"
+      ],
+      "quickSpecs": [
+        "23mm",
+        "8.0ml / 9.0ml",
+        "4 根立式毛细管导油"
+      ],
+      "specs": {
+        "设备类型": "Genesis RDTA (顶置线圈立式微孔网管/钢缆导油双模)",
+        "外形直径": "23 mm",
+        "本体高度": "53 mm（不含 510 螺纹与滴嘴）",
+        "油仓容量": "8.0ml（标准玻璃仓） / 9.0ml（Super Charge PSU 仓）",
+        "主体材质": "1.4301 食品级不锈钢 / 高透硼硅酸盐玻璃 / PEEK 绝缘体",
+        "接口规格": "标准 510 接口，可调正极螺丝",
+        "导油孔径": "4 根 2.5 mm 垂直立式通仓导油孔",
+        "导油介质": "4 根 #325/#400 垂直氧化微孔不锈钢网管或 7x7 航空不锈钢绳",
+        "电极平台": "双柱四孔 Velocity 结构电极柱，支持单发与双发架设",
+        "进气规格": "双侧三角斜切多孔旋转进气调节环，直吹线圈侧翼",
+        "品牌产地": "Steampipes (Christian Freiherr von Buddenbrock) · 德国",
+        "发布时间": "2016年4月"
+      },
+      "officialNotes": "Steampipes 官方设计要点：德国 Modder 团队于 2016 年推出的顶置储油架构。整机采用 23mm 外径与 8.0ml 大容量底置储油仓，利用 4 根垂直立式不锈钢毛细管从底部将烟油汲升至顶部 Velocity 电极台。玩家可选用 4 根氧化微孔不锈钢网卷，或 7x7 航空级不锈钢绳作为毛细介质，实现无重力死角供油，侧边斜切三角进气口为双发线圈提供充沛气流包裹。",
+      "reviews": [
+        {
+          "quote": "Corona V8 将创世纪毛细汲油原理与现代双柱电极台深度结合。4 根垂直不锈钢管的毛细供油速度快，即使在高功率连续抽吸下也不会断油，大容量储油仓提供了长效续航。",
+          "author": "Dampfer-Magazin (德国老牌电子烟鉴赏杂志)",
+          "platform": "Dampfer-Magazin Official Review",
+          "topic": "Steampipes Corona V8 顶置储油工程深度评测",
+          "url": "https://dampfdorado.de/steampipes-corona-v8-rta"
+        }
+      ],
+      "dateVerification": {
+        "status": "confirmed",
+        "primary": "Steampipes 官方发布档案: 2016年4月 Corona V8 批量发布并在德国本土交付",
+        "secondary": "Dampfer-Magazin 评测与德国各大专卖店首发上架记录: 2016年4月 规格确证",
+        "analysis": "原厂产品日志与欧洲主流渠道首批出货批次一致，发售时间确认为 2016年4月。"
+      },
+      "zuosi": [
+        {
+          "mesh": "#325 316 紧密编织微孔不锈钢网",
+          "size": "4 根 18*36mm 氧化空心中空卷管",
+          "wraps": "双发 0.40mm 康泰尔 6圈 0.45Ω"
+        },
+        {
+          "mesh": "#400 316L 细目斜纹氧化网管",
+          "size": "4 根 16*36mm 垂直插入通仓微孔管",
+          "wraps": "双发 0.35mm 镍铬 5圈 0.52Ω"
+        }
+      ],
+      "tanbang": [
+        {
+          "mesh": "4 根 2.5mm 航空级 7x7 不锈钢钢缆",
+          "needle": "顶端包裹 #400 微孔网绝缘套",
+          "s35": "",
+          "snet": "",
+          "vm3": "",
+          "vm4": "",
+          "vms": ""
+        },
+        {
+          "mesh": "7x7 脱芯不锈钢缆复合微孔网套",
+          "needle": "4 根 36mm 定制长度直插油仓",
+          "s35": "",
+          "snet": "",
+          "vm3": "",
+          "vm4": "",
+          "vms": ""
+        }
+      ]
+    },
+    {
+      "id": "vapor_giant_extreme_2",
+      "name": "Extreme 2",
+      "brand": "Vapor Giant",
+      "origin": "奥地利",
+      "type": "Genesis RDTA (奥地利高阶双模立式储油名作)",
+      "image": "images/vapor_giant_extreme_2_front.jpg",
+      "images": [
+        "images/vapor_giant_extreme_2_front.jpg",
+        "images/vapor_giant_extreme_2_deck.jpg",
+        "images/vapor_giant_extreme_2_airpins.jpg",
+        "images/vapor_giant_extreme_2_parts.jpg"
+      ],
+      "quickSpecs": [
+        "23mm",
+        "6.5ml",
+        "4 根立式导油管单双发双模"
+      ],
+      "specs": {
+        "设备类型": "Genesis RDTA (顶置双柱多孔立式导油双模)",
+        "外形直径": "23 mm",
+        "本体高度": "53 mm（不含滴嘴与 510 螺纹）",
+        "油仓容量": "6.5 ml",
+        "主体材质": "1.4301 奥氏体不锈钢 / 高透玻璃 / PEI 减压聚气配件",
+        "接口规格": "510 接口，镀金可调正极螺丝",
+        "导油孔径": "4 根 2.5 mm 垂直立式导油孔",
+        "导油介质": "4 根 7x7 垂直不锈钢缆或 #400 氧化微孔网管",
+        "电极平台": "双柱四孔独立锁丝台，附带单发 PEI 聚气减压密封块",
+        "进气规格": "中央导气立柱底部直吹结合侧向蜂窝进气，配多口径 Air Pins",
+        "品牌产地": "Vapor Giant (Niko Vapor) · 奥地利",
+        "发布时间": "2020年11月"
+      },
+      "officialNotes": "Vapor Giant 官方设计要点：奥地利 Niko Vapor 于 2020 年末推出的高阶立式储油作品。改进了初代的纯双发局限，加入原厂耐高温 PEI 腔体减压块与单侧导油封闭塞，实现单发口吸与双发大烟雾双模运行。底置 6.5ml 储油仓通过 4 根垂直毛细金属导管直通顶置电极台，搭配底部可换式 Air Pins 气流螺栓与侧向蜂窝风孔，形成立体气流包围圈。",
+      "reviews": [
+        {
+          "quote": "Extreme 2 展现了奥地利工坊对金属切削与气流几何的理解。PEI 单发减压插件的加入让它在 MTL 与 DL 之间自如切换，立式毛细管导油稳定，无渗漏或供油迟滞。",
+          "author": "Vaporism (中欧专业电子烟硬件测评机构)",
+          "platform": "Vaporism Official Review",
+          "topic": "Vapor Giant Extreme 2 双模结构深度测试",
+          "url": "https://www.promovap.com/1676-31938-atomiseur-extreme-2-rdta-de-vapor-giant.html"
+        }
+      ],
+      "dateVerification": {
+        "status": "confirmed",
+        "primary": "Niko Vapor 奥地利官方首发公告: 2020年11月 Extreme 2 全球批量发售",
+        "secondary": "inTaste 与 Dampf-Piraten 玩家社区首批开箱记录: 2020年11月",
+        "analysis": "奥地利官方发布日期与欧洲主流分销平台发货记录一致，确认为 2020年11月。"
+      },
+      "zuosi": [
+        {
+          "mesh": "#400 316 不锈钢斜纹微孔网",
+          "size": "2 根 18*38mm 氧化中空单发微孔网管",
+          "wraps": "单发 0.32mm 康泰尔 6圈 1.15Ω"
+        },
+        {
+          "mesh": "#325 316 紧密编织网管",
+          "size": "4 根 16*38mm 垂直双发导油柱",
+          "wraps": "双发 0.40mm 镍铬 5圈 0.38Ω"
+        }
+      ],
+      "tanbang": [
+        {
+          "mesh": "4 根原厂 7x7 航空不锈钢绳",
+          "needle": "顶端配置氧化绝缘金属套圈",
+          "s35": "",
+          "snet": "",
+          "vm3": "",
+          "vm4": "",
+          "vms": ""
+        },
+        {
+          "mesh": "单发 PEI 减压块配合双根钢缆",
+          "needle": "中心 1.2mm MTL 进气螺栓直吹",
+          "s35": "",
+          "snet": "",
+          "vm3": "",
+          "vm4": "",
+          "vms": ""
+        }
+      ]
+    },
+    {
+      "id": "fev_v4_5s_plus_mesh",
+      "name": "Flash-e-Vapor V4.5S+ (Mesh Mode)",
+      "brand": "Flash-e-Vapor",
+      "origin": "德国",
+      "type": "Genesis RTA (垂直微孔网管下滴式导油口吸图腾)",
+      "image": "images/fev_v4_5s_plus_mesh_front.jpg",
+      "images": [
+        "images/fev_v4_5s_plus_mesh_front.jpg",
+        "images/fev_v4_5s_plus_mesh_deck.jpg",
+        "images/fev_v4_5s_plus_mesh_parts.jpg",
+        "images/fev_v4_5s_plus_mesh_wicks.jpg"
+      ],
+      "quickSpecs": [
+        "23mm",
+        "3.5ml / 4.5ml",
+        "双微孔网管下滴式供油"
+      ],
+      "specs": {
+        "设备类型": "Genesis / RTA (顶仓双孔下滴式微孔网管导油)",
+        "外形直径": "23 mm",
+        "本体高度": "52 mm（不含滴嘴与 510 接口）",
+        "油仓容量": "3.5ml（短仓） / 4.5ml（标准玻璃仓）",
+        "主体材质": "1.4301 食品级不锈钢 / 硼硅酸盐玻璃 / 聚甲醛(POM)",
+        "接口规格": "510 螺纹接口，纯铜螺栓",
+        "导油孔径": "顶部仓底双 2.1 mm 重力垂直下插供油孔",
+        "导油介质": "2 根 #400 垂直氧化微孔不锈钢网管或原厂 DLC 涂层导油针",
+        "电极平台": "双螺丝压片立式单发线圈台，直立电极柱",
+        "进气规格": "侧向可换螺栓进气（单侧或双侧对冲，0.9mm - 2.1mm 多规格）",
+        "品牌产地": "Flash-e-Vapor (Artur Schwarze) · 德国",
+        "发布时间": "2018年2月"
+      },
+      "officialNotes": "Flash-e-Vapor 官方设计要点：德国发明家 Artur Schwarze 打造的经典重力下滴式结构。雾化仓位于底部，储油仓置于上方，通过仓底两个 2.1mm 圆孔向线下滴油。早期作者原配即包含 #400 不锈钢网布，由玩家卷成两根中空细网管（Mesh Wick Tubes）插入供油孔中，利用微孔毛细力将烟油精准输送到底部线圈棉脚。侧向对冲螺栓进气直击线圈侧面，提供干爽紧致的口吸体感。",
+      "reviews": [
+        {
+          "quote": "Flash-e-Vapor 的微孔网管下滴结构在稳定性上表现优异。两根卷制规范的不锈钢网管能够维持均匀的供油平衡，既不产生过供漏油，也不会出现干烧，击喉感与烟草风味解析透彻。",
+          "author": "Nebelkrähe (德国知名电子烟文化与硬件杂志)",
+          "platform": "Nebelkrähe Flash-e-Vapor 专栏",
+          "topic": "Flash-e-Vapor 历史演进与微孔网管毛细原理深度解析",
+          "url": "https://www.nebelkraehe.eu/2018/02/28/flash-e-vapor-edelstahldochte/"
+        }
+      ],
+      "dateVerification": {
+        "status": "confirmed",
+        "primary": "Flash-e-Vapor 德国官方发布公告: 2018年2月 V4.5 系列与官方 DLC Dochte 正式发售",
+        "secondary": "Nebelkrähe 杂志 2018年2月28日 官方首发与导油管评测归档",
+        "analysis": "德国作者发售公告与权威杂志创刊归档高度一致，确认为 2018年2月。"
+      },
+      "zuosi": [
+        {
+          "mesh": "#400 316 不锈钢细密网布",
+          "size": "2 张 8*55mm 紧密卷制为 2.1mm 中空网管",
+          "wraps": "0.32mm 康泰尔 6圈 1.25Ω"
+        },
+        {
+          "mesh": "#325 斜纹氧化微孔网管",
+          "size": "2 根 7*50mm 垂直下插式网管",
+          "wraps": "0.28mm 镍铬 6圈 1.40Ω"
+        }
+      ],
+      "tanbang": [
+        {
+          "mesh": "原厂 DLC 涂层不锈钢立式微管",
+          "needle": "2 根 2.1mm 直插即用式毛细供油针",
+          "s35": "",
+          "snet": "",
+          "vm3": "",
+          "vm4": "",
+          "vms": ""
+        },
+        {
+          "mesh": "复合微孔网套搭配下滴针",
+          "needle": "双侧 1.2mm 对冲气流螺栓",
+          "s35": "",
+          "snet": "",
+          "vm3": "",
+          "vm4": "",
+          "vms": ""
+        }
+      ]
+    },
+    {
+      "id": "vapefly_brunhilde_mtl",
+      "name": "Brunhilde MTL RTA",
+      "brand": "Vapefly",
+      "origin": "德国 / 中国",
+      "type": "Genesis RDTA (德系团队立式微孔网管口吸名作)",
+      "image": "images/vapefly_brunhilde_mtl_front.jpg",
+      "images": [
+        "images/vapefly_brunhilde_mtl_front.jpg",
+        "images/vapefly_brunhilde_mtl_deck.jpg",
+        "images/vapefly_brunhilde_mtl_parts.jpg",
+        "images/vapefly_brunhilde_mtl_cables.jpg"
+      ],
+      "quickSpecs": [
+        "23mm",
+        "5.0ml",
+        "双立式钢缆/网管德系口吸"
+      ],
+      "specs": {
+        "设备类型": "Genesis RDTA (立式毛细管导油顶置单发口吸)",
+        "外形直径": "23 mm",
+        "本体高度": "59.5 mm（含 510 树脂口吸滴嘴）",
+        "油仓容量": "5.0 ml",
+        "主体材质": "不锈钢外壳（德系头盔镂空保护套） / 硼硅酸盐玻璃",
+        "接口规格": "510 镀金电极接口",
+        "导油孔径": "双侧垂直 3.0 mm 贯穿式导油深孔",
+        "导油介质": "2 根德国原装 7x7 不锈钢导油缆或 #400 垂直微孔网管",
+        "电极平台": "双柱单侧侧压直立单发线圈台",
+        "进气规格": "底部插拔式气流调节内胆（0.9/1.2/1.4/1.8/2.1/2.5mm 六规格）与外侧气环",
+        "品牌产地": "Vapefly & German 103 Team · 德国 / 中国",
+        "发布时间": "2019年10月"
+      },
+      "officialNotes": "Vapefly 与德国 103 团队联合设计要点：德系工程师团队参与研发的 23mm 口吸储油设备。采用经典的顶置线圈与底置油仓布局，依靠 2 根德国进口 7x7 不锈钢钢缆或手工卷制的 #400 微孔不锈钢网管，将 5.0ml 底仓烟油垂直输送至电极台表面。底部配置 6 款可换进气螺栓，直冲线圈正下方，侧边带有防漏弹珠式快注油口。",
+      "reviews": [
+        {
+          "quote": "Brunhilde MTL 将德系顶置储油与现代口吸进气系统结合。双不锈钢导油管的毛细效率足够支持高尼古丁盐与复杂烟草液，可换气流柱让抽吸阻尼平滑线性。",
+          "author": "VAPE Circuit (日本资深电子烟品鉴专栏)",
+          "platform": "VAPE Circuit Official Review",
+          "topic": "vapefly Brunhilde MTL RTA 详细构造与做芯评测",
+          "url": "https://vape-circuit.com/atomizer/vapefly-brunhilde-mtl-rta/"
+        }
+      ],
+      "dateVerification": {
+        "status": "confirmed",
+        "primary": "Vapefly 官方全球新品发布公告: 2019年10月 Brunhilde MTL RTA 全球同步发售",
+        "secondary": "German 103 团队发布记录与日本 VAPE Circuit 首批实测: 2019年10月",
+        "analysis": "官方联合发布档案与国内外权威开箱时间一致，确认为 2019年10月。"
+      },
+      "zuosi": [
+        {
+          "mesh": "#400 316 紧卷氧化微孔网管",
+          "size": "2 根 18*38mm 垂直直插替代钢缆",
+          "wraps": "0.32mm 康泰尔 6圈 1.20Ω"
+        },
+        {
+          "mesh": "#325 316L 不锈钢斜裁微孔网",
+          "size": "2 根 16*36mm 紧密中空网管",
+          "wraps": "0.28mm 镍铬 6圈 1.35Ω"
+        }
+      ],
+      "tanbang": [
+        {
+          "mesh": "2 根德国原装 7x7 航空不锈钢缆",
+          "needle": "顶端修平贴合棉花导油脚",
+          "s35": "",
+          "snet": "",
+          "vm3": "",
+          "vm4": "",
+          "vms": ""
+        },
+        {
+          "mesh": "7x7 钢缆顶端包覆微孔网套",
+          "needle": "搭配 0.9mm 极紧口吸进气螺栓",
+          "s35": "",
+          "snet": "",
+          "vm3": "",
+          "vm4": "",
+          "vms": ""
+        }
+      ]
+    },
+    {
+      "id": "taifun_bt",
+      "name": "Taifun BT (Taifun B-T)",
+      "brand": "Taifun",
+      "origin": "德国",
+      "type": "Genesis RDTA (全球无丝发热网片与立式微孔网管开山鼻祖)",
+      "image": "images/taifun_bt_front.jpg",
+      "images": [
+        "images/taifun_bt_front.jpg",
+        "images/taifun_bt_deck.jpg",
+        "images/taifun_bt_parts.jpg",
+        "images/taifun_bt_cables.jpg"
+      ],
+      "quickSpecs": [
+        "23mm",
+        "5.0ml",
+        "无丝网片发热与3立式网管"
+      ],
+      "specs": {
+        "设备类型": "Genesis RDTA (全球无丝发热网片与立式微孔网管开山鼻祖)",
+        "品牌产地": "德国 (SmokerStore / Thomas Brückmann)",
+        "发布时间": "2017年5月",
+        "外形直径": "23 mm",
+        "本体高度": "50.5 mm (不含滴嘴)",
+        "油仓容量": "5.0 ml (侧孔与顶盖密封注油)",
+        "主体材质": "1.4301 (304) 德国高标不锈钢 / 硼硅玻璃仓 / PEEK",
+        "电极平台": "阶梯式压板固定微孔平铺不锈钢发热网片 (无螺旋线圈)",
+        "导油孔径": "3 根 2.5 mm 垂直通底立式导油通道",
+        "导油介质": "3 根垂直氧化微孔网管卷 / 7x7 不锈钢导油缆",
+        "进气规格": "双侧环形多孔蜂窝侧向进气调节环，对穿吹拂网片表面",
+        "接口规格": "标准 510 接口，镀金黄铜正极螺栓"
+      },
+      "officialNotes": "SmokerStore 联手 Thomas Brückmann 于 2017 年打造的里程碑之作。彻底摒弃传统螺旋卷绕发热丝，改用长条状微孔不锈钢网片作为发热体，下方填塞高密度脱脂棉或氧化网卷，依靠 3 根垂直立式不锈钢导油缆将仓底烟油强力虹吸至发热区域。这一架构彻底颠覆了全球储油雾化器设计理念，成为现代网片雾化器的开山鼻祖。",
+      "reviews": [
+        {
+          "author": "Mark Todd (Todd's Reviews)",
+          "platform": "Todd's Reviews 独立评测",
+          "topic": "Taifun BT by Smokerstore",
+          "url": "https://www.youtube.com/watch?v=F_fP4N9M6Fw"
+        }
+      ],
+      "dateVerification": {
+        "status": "confirmed",
+        "primary": "SmokerStore 官方发售档案: 2017年5月 Taifun BT 德国全球首发交付",
+        "secondary": "Todd's Reviews 深度开箱与实操实测: 2017年5月14日《Taifun BT by Smokerstore》",
+        "analysis": "SmokerStore 官方首批交付批次与欧洲各大独立评测频道 2017年5月中旬首发评测完全吻合，确证发售时间为 2017年5月。"
+      },
+      "zuosi": [
+        {
+          "mesh": "300目 316L 不锈钢发热网片 (宽6.5mm*长22mm)",
+          "size": "3 根 2.5*28mm #400 氧化微孔网管直立安置",
+          "wraps": "微孔平铺夹具直锁 0.28Ω"
+        },
+        {
+          "mesh": "400目 细目不锈钢发热网片 (宽7.0mm*长24mm)",
+          "size": "3 根 7x7 钢缆配外包 #325 微孔网套",
+          "wraps": "微孔平铺夹具直锁 0.35Ω"
+        }
+      ],
+      "tanbang": [
+        {
+          "mesh": "2.5mm 外径微孔绝缘陶瓷柱",
+          "needle": "3 根 2.5*26mm 垂直插入油仓导油孔",
+          "s35": "",
+          "snet": "",
+          "vm3": "",
+          "vm4": "",
+          "vms": ""
+        },
+        {
+          "mesh": "300目 不锈钢网套复合陶瓷柱",
+          "needle": "阶梯复合绝缘陶瓷套网直立系统",
+          "s35": "",
+          "snet": "",
+          "vm3": "",
+          "vm4": "",
+          "vms": ""
+        }
+      ]
+    },
+    {
+      "id": "gsv_gevolution_2",
+      "name": "Gevolution² (Gevolution 2)",
+      "brand": "German Stil Vapour",
+      "origin": "德国",
+      "type": "Genesis RDTA (德系极客高定立式双网管顶储旗舰)",
+      "image": "images/gsv_gevolution_2_front.jpg",
+      "images": [
+        "images/gsv_gevolution_2_front.jpg",
+        "images/gsv_gevolution_2_deck.jpg",
+        "images/gsv_gevolution_2_parts.jpg",
+        "images/gsv_gevolution_2_build.jpg"
+      ],
+      "quickSpecs": [
+        "23mm",
+        "4.0ml",
+        "德系高精双立式导油柱"
+      ],
+      "specs": {
+        "设备类型": "Genesis RDTA (德系极客高定立式双网管顶储旗舰)",
+        "品牌产地": "德国 (German Stil Vapour - GSV)",
+        "发布时间": "2019年9月",
+        "外形直径": "23 mm",
+        "本体高度": "67 mm",
+        "油仓容量": "4.0 ml (GSV 专利单向弹簧底注填充阀)",
+        "主体材质": "1.4301 / 1.4404 德国高标不锈钢 / 高透耐热玻璃",
+        "电极平台": "顶置双极柱单发/双发多功能甲板，收窄微型聚气仓",
+        "导油孔径": "2 根 3.0 mm 垂直直立导油穿孔",
+        "导油介质": "2 根 3.0mm 垂直微孔氧化网管 / 7x7 不锈钢缆",
+        "进气规格": "底部无级对穿旋转气流环，双侧垂直微孔斜向精准内聚侧吹",
+        "接口规格": "标准 510 接口，一体化机械切削正极"
+      },
+      "officialNotes": "German Stil Vapour 打造的 23mm 标杆级立式储油雾化器。配备 GSV 标志性的底座弹簧顶针密封注油阀与双立式导油通道，支持氧化微孔网卷直接直立穿入仓底，顶部雾化室采用超厚不锈钢壁精密收窄聚气，带来极度纯正且饱满的烟雾结晶度。",
+      "reviews": [
+        {
+          "author": "Dampfwolke 7 (Martin Hartkopf)",
+          "platform": "Dampfwolke 7 德国资深评测",
+          "topic": "Gevolution-2 von German Stil Vapour",
+          "url": "https://www.youtube.com/watch?v=k5j4c9yEaT8"
+        }
+      ],
+      "dateVerification": {
+        "status": "confirmed",
+        "primary": "German Stil Vapour 官方批次发售档案: 2019年9月 Gevolution² 首批 CNC 序列号交付",
+        "secondary": "Dampfwolke 7 德国专业实测: 2019年9月28日开箱测评与详细做芯指南",
+        "analysis": "GSV 原厂首发序列号公报与 Martin Hartkopf 2019年9月28日评测完全一致，确证发售时间为 2019年9月。"
+      },
+      "zuosi": [
+        {
+          "mesh": "2 根 3.0*25mm #400 氧化微孔网管",
+          "size": "垂直立式直通油仓双导油通道",
+          "wraps": "0.32mm A1 密绕 5圈 1.05Ω"
+        },
+        {
+          "mesh": "2 根 #325 纯不锈钢微孔实心网卷",
+          "size": "22*26mm 阶梯实心卷制",
+          "wraps": "0.40mm 316L 疏绕 6圈 0.65Ω"
+        }
+      ],
+      "tanbang": [
+        {
+          "mesh": "3.0mm 外径多孔绝缘陶瓷柱",
+          "needle": "双立式直插油仓导油管",
+          "s35": "",
+          "snet": "",
+          "vm3": "",
+          "vm4": "",
+          "vms": ""
+        },
+        {
+          "mesh": "2.8mm 陶瓷柱外包 300目 不锈钢网套",
+          "needle": "阶梯双复合陶瓷网套垂直系统",
+          "s35": "",
+          "snet": "",
+          "vm3": "",
+          "vm4": "",
+          "vms": ""
+        }
+      ]
+    },
+    {
+      "id": "dvarw_mtl_fl_mesh",
+      "name": "Dvarw MTL FL 22 (Mesh Wick Mode)",
+      "brand": "KHW Mods",
+      "origin": "匈牙利",
+      "type": "Genesis RTA (匈牙利极简口吸图腾纯网管直立毛细模式)",
+      "image": "images/dvarw_mtl_fl_mesh_front.jpg",
+      "images": [
+        "images/dvarw_mtl_fl_mesh_front.jpg",
+        "images/dvarw_mtl_fl_mesh_deck.jpg",
+        "images/dvarw_mtl_fl_mesh_parts.jpg",
+        "images/dvarw_mtl_fl_mesh_wicks.jpg"
+      ],
+      "quickSpecs": [
+        "22mm",
+        "3.5ml / 5.0ml",
+        "极简内胆双侧直立网管口吸"
+      ],
+      "specs": {
+        "设备类型": "Genesis RTA (匈牙利极简口吸图腾纯网管直立毛细模式)",
+        "品牌产地": "匈牙利 (KHW Mods / Péter Sárközi)",
+        "发布时间": "2020年7月",
+        "外形直径": "22 mm",
+        "本体高度": "27.5 mm (超紧凑低矮机身)",
+        "油仓容量": "3.5 ml / 5.0 ml (底部快旋拆装注油)",
+        "主体材质": "316 医疗级不锈钢 / 耐冲击聚碳酸酯 (PC) / PEEK 绝缘内胆",
+        "电极平台": "超低矮极简双极柱单发甲板，配双侧椭圆进油开孔",
+        "导油孔径": "双侧 2.0 mm 垂直椭圆直通导油开槽",
+        "导油介质": "双侧立式微孔氧化网管卷 (Mesh Wick 模式)",
+        "进气规格": "底部中心可更换式进气螺栓 (Air Pin 0.8mm - 2.0mm)",
+        "接口规格": "标准 510 接口，固定不锈钢正极触点"
+      },
+      "officialNotes": "匈牙利 KHW Mods 推出的 Face Lift (FL) 现代改款版本。其电极台双侧椭圆进油开孔具备极高通用性，在欧洲资深玩家群体中，使用双直立微孔氧化网管（Mesh Wick）直接穿入油仓导油是备受推崇的纯味方案。微孔网管依靠仓内负压与微孔毛细张力，将纯净烟油无延迟传输至发热线圈，彻底避免棉花焦糊或串味。",
+      "reviews": [
+        {
+          "author": "Mark Todd (Todd's Reviews)",
+          "platform": "Todd's Reviews 独立评测",
+          "topic": "Dvarw MTL FL 22 & 24 by KHW Mods",
+          "url": "https://www.youtube.com/watch?v=cM0oZ-6_z30"
+        }
+      ],
+      "dateVerification": {
+        "status": "confirmed",
+        "primary": "KHW Mods 官方发布公报: 2020年7月 Dvarw MTL FL 22 正式开售",
+        "secondary": "Todd's Reviews 专业实测: 2020年7月21日《Dvarw MTL FL 22 & 24 by KHW Mods》评测",
+        "analysis": "KHW Mods 匈牙利工坊官方发售通报与 Mark Todd 2020年7月21日评测严密吻合，确证发售时间为 2020年7月。"
+      },
+      "zuosi": [
+        {
+          "mesh": "双侧 2.0*14mm #500 极细微孔实心网管",
+          "size": "直立穿过电极台双侧椭圆进油孔",
+          "wraps": "0.28mm A1 5圈 1.15Ω"
+        },
+        {
+          "mesh": "2 根 #400 不锈钢网卷 (16*18mm 斜切卷制)",
+          "size": "紧密氧化微孔双立管",
+          "wraps": "0.30mm Ni80 6圈 0.95Ω"
+        }
+      ],
+      "tanbang": [
+        {
+          "mesh": "2 根 2.0mm 外径阶梯微孔绝缘陶瓷棒",
+          "needle": "垂直置于双侧进油开槽",
+          "s35": "",
+          "snet": "",
+          "vm3": "",
+          "vm4": "",
+          "vms": ""
+        },
+        {
+          "mesh": "1.8mm 陶瓷棒外包 400目 不锈钢网套",
+          "needle": "阶梯陶瓷微孔复合导油系统",
+          "s35": "",
+          "snet": "",
+          "vm3": "",
+          "vm4": "",
+          "vms": ""
+        }
+      ]
+    },
+    {
+      "id": "taifun_btd",
+      "name": "Taifun BTD (Taifun BT RDA / BF)",
+      "brand": "Taifun",
+      "origin": "德国",
+      "type": "Genesis RDA (德系高精无丝网片底注滴油旗舰)",
+      "image": "images/taifun_btd_front.jpg",
+      "images": [
+        "images/taifun_btd_front.jpg",
+        "images/taifun_btd_deck.jpg",
+        "images/taifun_btd_parts.jpg",
+        "images/taifun_btd_cap.jpg"
+      ],
+      "quickSpecs": [
+        "22mm / 25mm",
+        "超扁平滴油内胆",
+        "高精网片夹板与底注BF"
+      ],
+      "specs": {
+        "设备类型": "Genesis RDA (德系高精无丝网片底注滴油旗舰)",
+        "品牌产地": "德国 (SmokerStore)",
+        "发布时间": "2018年9月",
+        "外形直径": "22 mm (附带 25 mm 德系高精切削装饰美化环)",
+        "本体高度": "18 mm (超扁平微型压缩内胆)",
+        "油仓容量": "滴油雾化仓 / 标配空心底注 BF Squonk 供油",
+        "主体材质": "1.4301 医用不锈钢 / ULTEM (PEI) 聚醚酰亚胺隔热顶盖",
+        "电极平台": "阶梯式微孔平铺发热网片固定夹具 (Mesh Clamp System)",
+        "导油孔径": "底部中空 510 导油孔与储液双导油槽",
+        "导油介质": "平铺发热网片下双向高密度微孔网卷与导油介质",
+        "进气规格": "双侧各 4 颗 1.2 mm 阶梯斜向微孔打孔，精准覆盖网片",
+        "接口规格": "标准 510 接口，镀金空心 BF 螺栓 / 实心滴油螺栓"
+      },
+      "officialNotes": "SmokerStore 将 Taifun BT 的开创性发热网片概念微型化注入 22mm 滴油雾化仓的标杆力作。采用微孔平铺不锈钢网片固定夹具，搭配 ULTEM 隔热顶盖与双侧 4 孔斜向微孔进气阵列，既可通过顶部直滴，又可通过空心 510 螺栓与底注 Squonk 机械主机直连，带来极速升温爆发与极致浓郁解析。",
+      "reviews": [
+        {
+          "author": "VapingPost",
+          "platform": "VapingPost 欧洲深度硬件实测",
+          "topic": "Test : Taifun BTD - SmokerStore",
+          "url": "https://fr.vapingpost.com/test-taifun-btd-smokerstore/"
+        }
+      ],
+      "dateVerification": {
+        "status": "confirmed",
+        "primary": "SmokerStore 德国官方发布公报: 2018年9月 Taifun BTD 滴油雾化器全球发售",
+        "secondary": "VapingPost 专业单反深度评测: 2018年10月4日《Test : Taifun BTD - SmokerStore》",
+        "analysis": "SmokerStore 原厂发售公告与 VapingPost 2018年10月开箱实测完全吻合，确证发售时间为 2018年9月。"
+      },
+      "zuosi": [
+        {
+          "mesh": "300目 316L 不锈钢发热网片 (宽5.5mm*长16mm)",
+          "size": "下方平铺高密度微孔网卷与耐高温导油介质",
+          "wraps": "微孔夹板直锁 0.25Ω"
+        },
+        {
+          "mesh": "400目 316L 发热网片 (宽6.0mm*长18mm)",
+          "size": "底部 BF 储油槽双向微孔虹吸网垫",
+          "wraps": "微孔夹板直锁 0.32Ω"
+        }
+      ],
+      "tanbang": [
+        {
+          "mesh": "阶梯微孔绝缘陶瓷垫块铺底",
+          "needle": "阻断底注过量与电极短路",
+          "s35": "",
+          "snet": "",
+          "vm3": "",
+          "vm4": "",
+          "vms": ""
+        },
+        {
+          "mesh": "复合陶瓷块配 250目 不锈钢微孔网垫",
+          "needle": "直通底部 BF 注油口复合系统",
+          "s35": "",
+          "snet": "",
+          "vm3": "",
+          "vm4": "",
+          "vms": ""
+        }
+      ]
+    },
+    {
+      "id": "gd_mods_ignis",
+      "name": "Ignis RDTA (烬)",
+      "brand": "GD Mods",
+      "origin": "中国 (广东)",
+      "type": "Genesis RDTA (国产高定无级可变气室立式导油名作)",
+      "image": "images/gd_mods_ignis_front.jpg",
+      "images": [
+        "images/gd_mods_ignis_front.jpg",
+        "images/gd_mods_ignis_deck.jpg",
+        "images/gd_mods_ignis_parts.jpg",
+        "images/gd_mods_ignis_chamber.jpg"
+      ],
+      "quickSpecs": [
+        "22mm",
+        "3.0ml",
+        "无级可变气室与双立管"
+      ],
+      "specs": {
+        "设备类型": "Genesis RDTA (国产高定无级可变气室立式导油名作)",
+        "品牌产地": "中国 (GD Mods 联合 SXmini / YiHi 制造)",
+        "发布时间": "2024年7月",
+        "外形直径": "22 mm",
+        "本体高度": "47.5 mm (不含 510 接口)",
+        "油仓容量": "3.0 ml (耐热高透玻璃仓，支持侧向快注)",
+        "主体材质": "316 医疗级不锈钢 / PEEK 耐热绝缘体 / 高透耐热玻璃仓",
+        "电极平台": "单发双极柱顶置电极台，配备可拆卸单孔/蜂窝双导油柱",
+        "导油孔径": "双侧 2.5 mm 垂直直立导油穿孔",
+        "导油介质": "双立式氧化微孔不锈钢网管 / 7x7 钢缆 / 绝缘陶瓷柱",
+        "进气规格": "底部中心进气，标配 5 颗可更换气流插销 (1.0/1.2/1.5/双孔1.5/条形槽4.5x1.5mm)",
+        "接口规格": "标准 510 接口，镀金正极触点"
+      },
+      "officialNotes": "GD Mods 联合 SXmini 倾力打造的 22mm 高端客制化立式导油储油雾化器。搭载无级可变气室调节结构，通过旋转吸嘴即可在 0~2mm 范围内平滑升降内胆气室天花板，在无需开仓的情况下自由调整压缩比与烟雾结晶度；闭环导油调节系统标配单孔低流速管与蜂窝微孔高流速管，既能通过垂直氧化微孔网管卷实现干燥致密的纯粹口吸，又能配合轻肺吸提供充沛饱和度。",
+      "reviews": [
+        {
+          "author": "Kirifuda Tokyo (日本客制化高端电子烟名店)",
+          "platform": "Kirifuda Tokyo 独立品鉴",
+          "topic": "Ignis RDTA by GD Mods 構造と使用レビュー",
+          "url": "https://www.kirifuda.tokyo/items/157443837"
+        }
+      ],
+      "dateVerification": {
+        "status": "confirmed",
+        "primary": "GD Mods 官方首发交付公报与 SXmini 制造批次记录: 2024年7月全球发运",
+        "secondary": "日本客制化高端名店 Kirifuda 2024年夏季《Ignis RDTA by GD Mods》首批测评与开箱实录",
+        "analysis": "GD Mods 原厂发售公报与 Kirifuda 2024年7月开箱实测完全吻合，确证发售时间为 2024年7月。"
+      },
+      "zuosi": [
+        {
+          "mesh": "2 根 2.5*22mm #400 氧化微孔网管",
+          "size": "直立穿入油仓导油管",
+          "wraps": "0.28mm A1 5圈 1.15Ω"
+        },
+        {
+          "mesh": "2 根 #325 纯不锈钢实心网卷",
+          "size": "配合蜂窝导油管垂直系统",
+          "wraps": "0.32mm Ni80 5圈 0.85Ω"
+        }
+      ],
+      "tanbang": [
+        {
+          "mesh": "2 根 2.5mm 外径多孔绝缘陶瓷柱",
+          "needle": "双立式直插油仓导油孔",
+          "s35": "",
+          "snet": "",
+          "vm3": "",
+          "vm4": "",
+          "vms": ""
+        },
+        {
+          "mesh": "2.0mm 陶瓷柱外包 300目 不锈钢网套",
+          "needle": "阶梯双复合陶瓷网套垂直系统",
+          "s35": "",
+          "snet": "",
+          "vm3": "",
+          "vm4": "",
+          "vms": ""
+        }
+      ]
+    }
+  ]
+}
