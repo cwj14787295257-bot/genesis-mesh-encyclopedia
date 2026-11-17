@@ -491,9 +491,9 @@ def full_catalog_audit():
 
     # Domestic modder filter verification
     domestic_mods = [m for m in data if '中国' in m.get('origin', '')]
-    assert len(domestic_mods) == 7, f"Expected 7 domestic models, got {len(domestic_mods)}: {[m['id'] for m in domestic_mods]}"
-    assert set(m['id'] for m in domestic_mods) == {'shoushudao', 'magnum', 'yg_resistance_v1', 'yg_resistance_v2', 'agat', 'smok_rsst', 'pulse_g'}
-    assert '国内原创名作 (7)' in html, "Filter pill for domestic (7) not found in index.html"
+    assert len(domestic_mods) == 8, f"Expected 7 domestic models, got {len(domestic_mods)}: {[m['id'] for m in domestic_mods]}"
+    assert set(m['id'] for m in domestic_mods) == {'shoushudao', 'magnum', 'yg_resistance_v1', 'yg_resistance_v2', 'agat', 'smok_rsst', 'pulse_g', 'ifmods_tokamak'}
+    assert '国内原创名作 (8)' in html, "Filter pill for domestic (7) not found in index.html"
     print(f"  国内原创网子矩阵扩充通过: {[m['name'] for m in domestic_mods]}")
     print(f" -> 验证通过: YG Creation 国籍与品牌渊源 100% 纠偏核验通过！")
 
@@ -868,7 +868,7 @@ def full_catalog_audit():
 
     # Verify brand pills in HTML
     assert '全部 (104)' in html, "index.html missing 全部 pill"
-    assert '国内原创名作 (7)' in html, "index.html missing 国内原创名作 pill"
+    assert '国内原创名作 (8)' in html, "index.html missing 国内原创名作 pill"
     assert 'Diablo Mods (1)' in html, "index.html missing Diablo Mods (1) pill"
     assert 'Style of Mojo (1)' in html, "index.html missing Style of Mojo (1) pill"
     assert 'Nosmoker / Orion (2)' in html, "index.html missing Nosmoker / Orion (2) pill"
@@ -1123,9 +1123,9 @@ def full_catalog_audit():
     print("\n[Test 43] 校验全馆纯血创世纪百款里程碑 (104 款) 厂牌典藏与终极发布合规性验收...")
     # Check domestic mods matrix
     domestic_ids = set(m['id'] for m in domestic_mods)
-    expected_domestic = {'shoushudao', 'magnum', 'yg_resistance_v1', 'yg_resistance_v2', 'agat', 'smok_rsst', 'pulse_g'}
+    expected_domestic = {'shoushudao', 'magnum', 'yg_resistance_v1', 'yg_resistance_v2', 'agat', 'smok_rsst', 'pulse_g', 'ifmods_tokamak'}
     assert domestic_ids == expected_domestic, f"Domestic mods mismatch: {domestic_ids} vs {expected_domestic}"
-    assert '国内原创名作 (7)' in html, "index.html missing '国内原创名作 (7)' pill"
+    assert '国内原创名作 (8)' in html, "index.html missing '国内原创名作 (8)' pill"
 
     # Check total counts in index.html
     assert '全部 (104)' in html, "index.html missing '全部 (104)'"
@@ -1133,14 +1133,16 @@ def full_catalog_audit():
     assert '104 款名作典藏' in html, "index.html missing '104 款名作典藏'"
     assert '93 款确证 · 11 款待考证' in html, "index.html missing '93 款确证 · 11 款待考证'"
 
-    print(f"  百款纯血里程碑: 全馆 104 款名作、7 款国内纯血原创名作、388 张高清纯实拍图库全部通过零货不对板验收！")
+    print(f"  百款纯血里程碑: 全馆 104 款名作、8 款国内纯血原创名作、388 张高清纯实拍图库全部通过零货不对板验收！")
     print(f" -> 验证通过: 全馆 104 款纯血创世纪图鉴终极发布合规性 100% 验收通过！")
 
     # --- 44. IF Mods Tokamak RDTA Verification Audit ---
-    print(f"\n[Test 44] 校验俄系客制化核聚变概念纯网名作 IF Mods Tokamak (托卡马克 RDTA) 完整性...")
+    print(f"\n[Test 44] 校验国创先锋核聚变概念纯网名作 IF Mods Tokamak (托卡马克 RDTA) 完整性...")
     mid = 'ifmods_tokamak'
     assert mid in data_dict, f"Model {mid} missing from dataset!"
     m = data_dict[mid]
+    assert m['origin'] == '中国', f"{mid} origin must be 中国, got {m['origin']}"
+    assert '中国' in m['specs']['品牌产地'], f"{mid} 品牌产地 must mention 中国"
 
     # Specs check
     assert len(m['quickSpecs']) == 3, f"{mid} quickSpecs length != 3"
@@ -1171,7 +1173,7 @@ def full_catalog_audit():
     assert 'data-filter="ifmods"' in html, "index.html missing data-filter='ifmods'"
     assert "activeFilter === 'ifmods'" in html, "index.html missing activeFilter === 'ifmods'"
 
-    print(f"  Tokamak 实体审计: 俄罗斯 IF Mods 联合 F-mods (FREAK) 打造，核聚变反应堆工业概念，中央 3.0mm 直立氧化微孔网管与 PEI 减仓聚气块！")
+    print(f"  Tokamak 实体审计: 中国高端客制化工作室 IF Mods 打造，核聚变反应堆工业概念，中央 3.0mm 直立氧化微孔网管与 PEI 减仓聚气块！")
     print(f"  实拍图库: 配备 4 张 3024x3024 超高清棚拍微距实拍（正面定妆、零件分解、电极底座、附件与减仓块），0 SVG，0 碰撞！")
     print(f" -> 验证通过: IF Mods Tokamak (托卡马克 RDTA) 100% 验收通过！")
 
