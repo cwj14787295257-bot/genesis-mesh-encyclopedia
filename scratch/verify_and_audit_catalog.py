@@ -18,14 +18,14 @@ def get_file_md5(filepath):
 
 def full_catalog_audit():
     print("=" * 60)
-    print("    网子雾化器图鉴 · 全馆 104 款纯血创世纪零杂质终极复核与质量验收")
+    print("    网子雾化器图鉴 · 全馆 108 款纯血创世纪零杂质终极复核与质量验收")
     print("=" * 60)
 
     data = generate_html.data
 
     # --- 1. Catalog Count ---
     print(f"\n[Test 1] 校验全馆收录总数...")
-    assert len(data) == 104, f"Expected 104 models, got {len(data)}"
+    assert len(data) == 108, f"Expected 104 models, got {len(data)}"
     print(f" -> 验证通过: 全馆共收录 {len(data)} 款经典网子名作。")
 
     # --- 2. Specs Completeness ---
@@ -65,7 +65,7 @@ def full_catalog_audit():
     # --- 3. Physical Image Files Check ---
     print(f"\n[Test 3] 校验本地图片文件存在性、纯实拍属性(0 SVG)与大小...")
     print(f" -> 全馆引用唯一样本图片总数: {len(all_images)} 张 (严格要求 440 张纯实拍)")
-    assert len(all_images) == 388, f"Expected exactly 388 unique physical images, got {len(all_images)}"
+    assert len(all_images) == 404, f"Expected exactly 388 unique physical images, got {len(all_images)}"
     for img_rel in all_images:
         assert not img_rel.endswith('.svg'), f"Non-photo SVG file detected in catalog: {img_rel}"
         img_abs = os.path.join(base_dir, img_rel)
@@ -178,10 +178,10 @@ def full_catalog_audit():
     with open(index_path, 'r', encoding='utf-8') as f:
         html = f.read()
 
-    assert '全部 (104)' in html, "index.html missing '全部 (104)'"
+    assert '全部 (108)' in html, "index.html missing '全部 (108)'"
     assert 'IF Mods (1)' in html, "index.html missing 'IF Mods (1)'"
-    assert '正在展示全部 104 款雾化器' in html, "index.html missing '正在展示全部 104 款雾化器'"
-    assert '104 款名作典藏' in html, "index.html missing '104 款名作典藏'"
+    assert '正在展示全部 108 款雾化器' in html, "index.html missing '正在展示全部 108 款雾化器'"
+    assert '108 款名作典藏' in html, "index.html missing '108 款名作典藏'"
     assert 'VWM (4)' in html, "index.html missing 'VWM (4)'"
     assert 'Athea Mods (5)' in html, "index.html missing 'Athea Mods (5)'"
     assert 'The Attysmith / Hellfire (4)' in html, "index.html missing 'The Attysmith / Hellfire (4)'"
@@ -189,7 +189,7 @@ def full_catalog_audit():
     assert 'Steamboy (2)' in html, "index.html missing 'Steamboy (2)'"
     
     assert 'House of Hybrids (3)' in html, "index.html missing 'House of Hybrids (3)'"
-    assert 'Doc Dave (3)' in html, "index.html missing 'Doc Dave (3)'"
+    assert 'Doc Dave (4)' in html, "index.html missing 'Doc Dave (4)'"
     assert 'Vaponaute (3)' in html, "index.html missing 'Vaponaute (3)'"
     assert 'Senio Mods (1)' in html, "index.html missing 'Senio Mods (1)'"
     assert 'Origen Mods (1)' in html, "index.html missing 'Origen Mods (1)'"
@@ -344,8 +344,8 @@ def full_catalog_audit():
 
     # Verify Doc Dave collection
     docdave_items = [m for m in data if 'doc dave' in m['brand'].lower()]
-    assert len(docdave_items) == 3, f"Expected 3 Doc Dave models, got {len(docdave_items)}"
-    assert set(m['id'] for m in docdave_items) == {'docdave_steamturbine', 'docdave_bliss', 'docdave_reactor'}
+    assert len(docdave_items) == 4, f"Expected 3 Doc Dave models, got {len(docdave_items)}"
+    assert set(m['id'] for m in docdave_items) == {'docdave_steamturbine', 'docdave_bliss', 'docdave_reactor', 'docdave_minib'}
     print(f"  Doc Dave 系列收录: {[m['name'] for m in docdave_items]}")
 
     # --- 19. Batch 17 Authenticity Audit and Irrelevant Image Purge ---
@@ -564,7 +564,7 @@ def full_catalog_audit():
     print(f" -> 验证通过: Batch 23 经典创世纪四大先驱名作档案、实拍图库与双模做芯指南 100% 验收通过！")
  
     # --- 26. Release Date & Provenance Audit ---
-    print(f"\n[Test 26] 校验全馆 104 款雾化器发布时间规范性 (权威考据年月或严谨暂定标注)...")
+    print(f"\n[Test 26] 校验全馆 108 款雾化器发布时间规范性 (权威考据年月或严谨暂定标注)...")
     date_regex = re.compile(r'^(\d{4}年(1[0-2]|[1-9])月|约 \d{4}年 \(暂定\))$')
     exact_count = 0
     tentative_count = 0
@@ -578,7 +578,7 @@ def full_catalog_audit():
         else:
             exact_count += 1
     print(f"  发布时间考证统计: 确切年月 {exact_count} 款，严谨暂定 {tentative_count} 款 (共 {len(data)} 款)")
-    assert exact_count == 93, f"Expected 93 exact dates, got {exact_count}"
+    assert exact_count == 97, f"Expected 93 exact dates, got {exact_count}"
     assert tentative_count == 11, f"Expected 11 tentative dates, got {tentative_count}"
 
     # Verify compiled index.html contains release date logic and embedded dates
@@ -597,17 +597,17 @@ def full_catalog_audit():
     atomizers_match = re.search(r'const ATOMIZERS = (\[.*?\]);\s*let activeFilter', html, re.DOTALL)
     assert atomizers_match, "Failed to parse ATOMIZERS JSON from index.html"
     index_atomizers = json.loads(atomizers_match.group(1))
-    assert len(index_atomizers) == 104, f"Expected 104 atomizers in index.html, got {len(index_atomizers)}"
+    assert len(index_atomizers) == 108, f"Expected 104 atomizers in index.html, got {len(index_atomizers)}"
     for idx_item in index_atomizers:
         iid = idx_item['id']
         src_item = next(m for m in data if m['id'] == iid)
         assert idx_item['specs']['发布时间'] == src_item['specs']['发布时间'], f"Date mismatch for {iid} between generate_html.py and index.html"
 
     print(f"  编译产物校验: index.html 前端卡片、模态窗与搜索分词逻辑 100% 同步！")
-    print(f" -> 验证通过: 全馆 104 款雾化器全部通过发布时间权威背书与格式审查！")
+    print(f" -> 验证通过: 全馆 108 款雾化器全部通过发布时间权威背书与格式审查！")
 
     # --- 27. Multi-Source Cross-Verification (Primary & Secondary Evidence) Audit ---
-    print(f"\n[Test 27] 校验全馆 104 款雾化器多方权威资料交叉验证 (Primary + Secondary Evidence) 完备性与一致性...")
+    print(f"\n[Test 27] 校验全馆 108 款雾化器多方权威资料交叉验证 (Primary + Secondary Evidence) 完备性与一致性...")
     confirmed_dv_count = 0
     tentative_dv_count = 0
     for item in data:
@@ -635,9 +635,9 @@ def full_catalog_audit():
         assert len(dv['primary']) >= 15, f"{iid} primary citation too brief: '{dv['primary']}'"
         assert len(dv['secondary']) >= 15, f"{iid} secondary citation too brief: '{dv['secondary']}'"
 
-    assert confirmed_dv_count == 93, f"Expected 93 confirmed dateVerification entries, got {confirmed_dv_count}"
+    assert confirmed_dv_count == 97, f"Expected 93 confirmed dateVerification entries, got {confirmed_dv_count}"
     assert tentative_dv_count == 11, f"Expected 11 tentative dateVerification entries, got {tentative_dv_count}"
-    print(f"  双源交叉验证统计: 93 款具备一手原厂/官方编年主证据与独立评测辅证据; 11 款客观暂定并详述考据阻断成因")
+    print(f"  双源交叉验证统计: 97 款具备一手原厂/官方编年主证据与独立评测辅证据; 11 款客观暂定并详述考据阻断成因")
 
     # Check dateVerification persistence in index.html JSON
     for idx_item in index_atomizers:
@@ -680,7 +680,7 @@ def full_catalog_audit():
         else:
             tentative_items.append(item['id'])
 
-    assert len(confirmed_items) == 93, f"Expected 93 confirmed items for timeline, got {len(confirmed_items)}"
+    assert len(confirmed_items) == 97, f"Expected 93 confirmed items for timeline, got {len(confirmed_items)}"
     assert len(tentative_items) == 11, f"Expected 11 tentative items for timeline, got {len(tentative_items)}"
 
     # Sort ascending
@@ -693,7 +693,7 @@ def full_catalog_audit():
     # Verify year grouping
     years = sorted(list(set(x[1] for x in confirmed_items)))
     assert len(years) == 11, f"Expected 11 distinct timeline years, got {len(years)}"
-    print(f"  时间轴架构校验: 涵盖 {years[0]} 至 {years[-1]} 共 {len(years)} 个历史年份节点，93 款确证名作排布顺畅，11 款独立收录于「年代待考证专区」")
+    print(f"  时间轴架构校验: 涵盖 {years[0]} 至 {years[-1]} 共 {len(years)} 个历史年份节点，97 款确证名作排布顺畅，11 款独立收录于「年代待考证专区」")
     print(f" -> 验证通过: 时间轴编年史视图、双向切换与年代快速导航全部验收通过！")
 
     # --- 29. lieflat-less-ai-tone & Clean Style Compliance Audit ---
@@ -758,7 +758,7 @@ def full_catalog_audit():
     assert 'NIRVANA · 网子图鉴' in html, "index.html missing compact Nirvana title for mobile"
     assert 'nav-subtitle' in html, "index.html missing .nav-subtitle"
     assert 'nav-mobile-badge' in html, "index.html missing .nav-mobile-badge"
-    assert '104 款' in html, "index.html missing 104 款 mobile capsule badge"
+    assert '108 款' in html, "index.html missing 108 款 mobile capsule badge"
     assert 'min-height: 44px' in html or 'height: 44px' in html, "index.html missing 44px compact navbar specification"
     assert 'brand-logo-img {\n        height: 24px' in html or 'brand-logo-img {\n        height: 24px;' in html or '.brand-logo-img' in html, "index.html missing mobile logo resize"
     assert '.logo-badge {\n        display: none;' in html or '.logo-badge { display: none; }' in html or 'display: none' in html, "index.html missing badge hide on mobile"
@@ -831,7 +831,7 @@ def full_catalog_audit():
 
     # Verify brand pills in HTML
     assert 'Senio Mods (1)' in html, "index.html missing Senio Mods (1) pill"
-    assert 'Doc Dave (3)' in html, "index.html missing Doc Dave (3) pill"
+    assert 'Doc Dave (4)' in html, "index.html missing Doc Dave (4) pill"
     assert 'Vaponaute (3)' in html, "index.html missing Vaponaute (3) pill"
     assert "activeFilter === 'senio'" in html, "index.html missing senio filter branch"
 
@@ -867,7 +867,7 @@ def full_catalog_audit():
         assert len(m['tanbang']) >= 2, f"{mid} missing tanbang build guide"
 
     # Verify brand pills in HTML
-    assert '全部 (104)' in html, "index.html missing 全部 pill"
+    assert '全部 (108)' in html, "index.html missing 全部 pill"
     assert '国内原创名作 (8)' in html, "index.html missing 国内原创名作 pill"
     assert 'Diablo Mods (1)' in html, "index.html missing Diablo Mods (1) pill"
     assert 'Style of Mojo (1)' in html, "index.html missing Style of Mojo (1) pill"
@@ -908,9 +908,9 @@ def full_catalog_audit():
         assert len(m['tanbang']) >= 2, f"{mid} missing tanbang build guide"
 
     # Verify brand pills in HTML
-    assert '全部 (104)' in html, "index.html missing 全部 pill"
+    assert '全部 (108)' in html, "index.html missing 全部 pill"
     assert 'iHybrid (1)' in html, "index.html missing iHybrid (1) pill"
-    assert 'MMVapors (3)' in html, "index.html missing MMVapors (2) pill"
+    assert 'MMVapors (4)' in html, "index.html missing MMVapors (2) pill"
     assert 'Van Mods (3)' in html, "index.html missing Van Mods (2) pill"
     assert "activeFilter === 'ihybrid'" in html, "index.html missing ihybrid filter branch"
     assert "activeFilter === 'mmv'" in html, "index.html missing mmv filter branch"
@@ -948,10 +948,10 @@ def full_catalog_audit():
         assert len(m['tanbang']) >= 2, f"{mid} missing tanbang build guide"
 
     # Verify brand pills & milestone UI in HTML
-    assert '全部 (104)' in html, "index.html missing 全部 pill"
+    assert '全部 (108)' in html, "index.html missing 全部 pill"
     assert 'Atmomixani (1)' in html, "index.html missing Atmomixani (1) pill"
     assert 'Drop Mods (1)' in html, "index.html missing Drop Mods (1) pill"
-    assert 'MMVapors (3)' in html, "index.html missing MMVapors (3) pill"
+    assert 'MMVapors (4)' in html, "index.html missing MMVapors (4) pill"
     assert 'Van Mods (3)' in html, "index.html missing Van Mods (3) pill"
     assert "activeFilter === 'atmomixani'" in html, "index.html missing atmomixani filter branch"
     assert "activeFilter === 'dropmods'" in html, "index.html missing dropmods filter branch"
@@ -1031,15 +1031,15 @@ def full_catalog_audit():
     print(f" -> 验证通过: Batch 31 全馆深度去重升格与殿堂双星 100% 验收通过！")
 
     # --- 40. 103 Pure Genesis Masterpieces Deduplication & Zero Collision Audit ---
-    print("\n[Test 40] 校验全馆 104 款绝对唯一、零重复与零碰撞终极去重核验...")
+    print("\n[Test 40] 校验全馆 108 款绝对唯一、零重复与零碰撞终极去重核验...")
     all_model_ids = [x['id'] for x in data]
     all_model_names = [x['name'] for x in data]
-    assert len(all_model_ids) == 104, f"Expected 104 models, got {len(all_model_ids)}"
-    assert len(set(all_model_ids)) == 104, f"Duplicate IDs detected: {len(all_model_ids)} vs {len(set(all_model_ids))}"
-    assert len(set(all_model_names)) == 104, f"Duplicate names detected: {len(all_model_names)} vs {len(set(all_model_names))}"
-    assert len(all_images) == 388, f"Expected exactly 388 unique images, got {len(all_images)}"
-    print(f"  全馆纯血指标: 全馆纯正收录 104 款，388 张高清纯实拍微距图库全部就绪（0 缺失，0 碰撞，0 仿品）！")
-    print(f" -> 验证通过: 全馆 104 款模型唯一性与 388 张实拍图库零碰撞 100% 验收通过！")
+    assert len(all_model_ids) == 108, f"Expected 104 models, got {len(all_model_ids)}"
+    assert len(set(all_model_ids)) == 108, f"Duplicate IDs detected: {len(all_model_ids)} vs {len(set(all_model_ids))}"
+    assert len(set(all_model_names)) == 108, f"Duplicate names detected: {len(all_model_names)} vs {len(set(all_model_names))}"
+    assert len(all_images) == 404, f"Expected exactly 388 unique images, got {len(all_images)}"
+    print(f"  全馆纯血指标: 全馆纯正收录 108 款，404 张高清纯实拍微距图库全部就绪（0 缺失，0 碰撞，0 仿品）！")
+    print(f" -> 验证通过: 全馆 108 款模型唯一性与 404 张实拍图库零碰撞 100% 验收通过！")
 
     # --- 41. Zero Non-Genesis Anti-Regression Blacklist Defense Audit ---
     print("\n[Test 41] 校验 14 款非网子雾化器黑名单反弹终极防御与胶囊零残留审计...")
@@ -1093,7 +1093,7 @@ def full_catalog_audit():
     print(f" -> 验证通过: 非网子零容忍防御网与独立归档备忘录 100% 验收通过！")
 
     # --- 42. Pure Genesis Authentic Mesh-Wicking Architectural Compliance Audit ---
-    print("\n[Test 42] 校验全馆 104 款原教旨纯血创世纪 (Pure Genesis) 物理结构合规性...")
+    print("\n[Test 42] 校验全馆 108 款原教旨纯血创世纪 (Pure Genesis) 物理结构合规性...")
     for item in data:
         iid = item['id']
         mtype = item['type']
@@ -1113,14 +1113,14 @@ def full_catalog_audit():
         assert '发热网片' not in mtype, f"{iid} has mesh sheet heating: {mtype}"
         assert '发热网片' not in deck, f"{iid} has mesh sheet heating deck: {deck}"
 
-    assert len([m for m in data if len(m.get('zuosi', [])) >= 1]) == 98, "Expected 98 models with zuosi data"
-    assert len([m for m in data if len(m.get('tanbang', [])) >= 1]) == 89, "Expected 89 models with tanbang data"
+    assert len([m for m in data if len(m.get('zuosi', [])) >= 1]) == 102, "Expected 102 models with zuosi data"
+    assert len([m for m in data if len(m.get('tanbang', [])) >= 1]) == 93, "Expected 93 models with tanbang data"
 
-    print(f"  原教旨纯血结构核验: 全馆 104 款雾化器全部采用不锈钢微孔网/绝缘陶瓷棒直立绕丝结构，0 发热网片，0 下滴式棉花 RTA！")
-    print(f" -> 验证通过: 全馆 104 款纯血创世纪物理架构合规性 100% 验收通过！")
+    print(f"  原教旨纯血结构核验: 全馆 108 款雾化器全部采用不锈钢微孔网/绝缘陶瓷棒直立绕丝结构，0 发热网片，0 下滴式棉花 RTA！")
+    print(f" -> 验证通过: 全馆 108 款纯血创世纪物理架构合规性 100% 验收通过！")
 
     # --- 43. 104 Pure Genesis Masterpieces Final Launch Quality Audit ---
-    print("\n[Test 43] 校验全馆纯血创世纪百款里程碑 (104 款) 厂牌典藏与终极发布合规性验收...")
+    print("\n[Test 43] 校验全馆纯血创世纪百款里程碑 (108 款) 厂牌典藏与终极发布合规性验收...")
     # Check domestic mods matrix
     domestic_ids = set(m['id'] for m in domestic_mods)
     expected_domestic = {'shoushudao', 'magnum', 'yg_resistance_v1', 'yg_resistance_v2', 'agat', 'smok_rsst', 'pulse_g', 'ifmods_tokamak'}
@@ -1128,13 +1128,13 @@ def full_catalog_audit():
     assert '国内原创名作 (8)' in html, "index.html missing '国内原创名作 (8)' pill"
 
     # Check total counts in index.html
-    assert '全部 (104)' in html, "index.html missing '全部 (104)'"
-    assert '正在展示全部 104 款雾化器' in html, "index.html missing '正在展示全部 104 款雾化器'"
-    assert '104 款名作典藏' in html, "index.html missing '104 款名作典藏'"
-    assert '93 款确证 · 11 款待考证' in html, "index.html missing '93 款确证 · 11 款待考证'"
+    assert '全部 (108)' in html, "index.html missing '全部 (108)'"
+    assert '正在展示全部 108 款雾化器' in html, "index.html missing '正在展示全部 108 款雾化器'"
+    assert '108 款名作典藏' in html, "index.html missing '108 款名作典藏'"
+    assert '97 款确证 · 11 款待考证' in html, "index.html missing '97 款确证 · 11 款待考证'"
 
-    print(f"  百款纯血里程碑: 全馆 104 款名作、8 款国内纯血原创名作、388 张高清纯实拍图库全部通过零货不对板验收！")
-    print(f" -> 验证通过: 全馆 104 款纯血创世纪图鉴终极发布合规性 100% 验收通过！")
+    print(f"  百款纯血里程碑: 全馆 108 款名作、8 款国内纯血原创名作、404 张高清纯实拍图库全部通过零货不对板验收！")
+    print(f" -> 验证通过: 全馆 108 款纯血创世纪图鉴终极发布合规性 100% 验收通过！")
 
     # --- 44. IF Mods Tokamak RDTA Verification Audit ---
     print(f"\n[Test 44] 校验国创先锋核聚变概念纯网名作 IF Mods Tokamak (托卡马克 RDTA) 完整性...")
@@ -1177,8 +1177,51 @@ def full_catalog_audit():
     print(f"  实拍图库: 配备 4 张 3024x3024 超高清棚拍微距实拍（正面定妆、零件分解、电极底座、附件与减仓块），0 SVG，0 碰撞！")
     print(f" -> 验证通过: IF Mods Tokamak (托卡马克 RDTA) 100% 验收通过！")
 
+
+    # --- 45. Batch 35 European & Eastern European / American Masterpieces Verification Audit ---
+    print(f"\n[Test 45] 校验 Batch 35 欧美与东欧客制化殿堂 4 款纯网名作 (MMV Gemini, Doc Dave Mini-B, Walker Timerider, JM Mods JMG22) 完整性...")
+    batch35_ids = ['mmv_gemini', 'docdave_minib', 'walker_timerider', 'jmmods_jmg22']
+    for mid in batch35_ids:
+        assert mid in data_dict, f"Model {mid} missing from dataset!"
+        m = data_dict[mid]
+        assert len(m['quickSpecs']) == 3, f"{mid} quickSpecs length != 3"
+        assert m['dateVerification']['status'] == 'confirmed', f"{mid} dateVerification status != confirmed"
+        assert len(m['dateVerification']['primary']) >= 15, f"{mid} primary evidence too short"
+        assert len(m['dateVerification']['secondary']) >= 15, f"{mid} secondary evidence too short"
+
+        # 12 standardized spec keys
+        for sk in ['设备类型', '品牌产地', '发布时间', '外形直径', '本体高度', '油仓容量', '主体材质', '电极平台', '导油孔径', '导油介质', '进气规格', '接口规格']:
+            assert sk in m['specs'], f"{mid} missing required spec key {sk}"
+
+        # 4 physical photos
+        assert len(m['images']) == 4, f"{mid} must have 4 images, got {len(m['images'])}"
+        for img_path in m['images']:
+            full_p = os.path.join(base_dir, img_path)
+            assert os.path.exists(full_p), f"{mid} image missing: {img_path}"
+            assert os.path.getsize(full_p) > 5000, f"{mid} image too small: {img_path}"
+            assert not img_path.endswith('.svg'), f"{mid} image cannot be svg: {img_path}"
+
+        # Reviews, zuosi, tanbang
+        assert len(m['reviews']) >= 1, f"{mid} missing authentic reviews"
+        assert len(m['zuosi']) >= 2, f"{mid} missing zuosi build guide"
+        assert len(m['tanbang']) >= 2, f"{mid} missing tanbang build guide"
+
+    # Specific date and pill checks
+    assert data_dict['mmv_gemini']['specs']['发布时间'] == '2012年8月'
+    assert data_dict['docdave_minib']['specs']['发布时间'] == '2013年2月'
+    assert data_dict['walker_timerider']['specs']['发布时间'] == '2020年11月'
+    assert data_dict['jmmods_jmg22']['specs']['发布时间'] == '2013年11月'
+
+    assert 'JM Mods (1)' in html, "index.html missing JM Mods (1) pill"
+    assert 'data-filter="jmmods"' in html, "index.html missing data-filter='jmmods'"
+    assert "activeFilter === 'jmmods'" in html, "index.html missing activeFilter === 'jmmods'"
+
+    print(f"  Batch 35 实体审计: MMV Gemini (希腊双网2012)、Doc Dave Mini-B (美系16mm微创世纪2013)、Walker Timerider (乌克兰钛合金气销2020)、JM Mods JMG22 (波兰阶梯双导油2013) 全部合规！")
+    print(f"  实拍图库: 新增 16 张超清真机微距实拍（正面定妆、零件分解、电极底座、发热丝网芯），0 SVG，0 碰撞！")
+    print(f" -> 验证通过: Batch 35 欧美与东欧客制化殿堂 4 款纯网名作 100% 验收通过！")
+
     print("\n" + "=" * 60)
-    print("    恭喜！全馆 44 大终极核对套件全部通过（100% PASS）！")
+    print("    恭喜！全馆 45 大终极核对套件全部通过（100% PASS）！")
     print("=" * 60)
 
 if __name__ == '__main__':
