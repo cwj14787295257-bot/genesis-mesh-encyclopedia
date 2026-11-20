@@ -23,3 +23,5 @@ scratch/*
 cf96647cbe2898ee4a9cde5341067a6c.png
 *.log
 *.tmp
+.agents/
+

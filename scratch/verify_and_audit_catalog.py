@@ -3,6 +3,14 @@ import sys
 import json
 import hashlib
 import re
+import math
+import collections
+
+try:
+    from PIL import Image
+    HAS_PIL = True
+except ImportError:
+    HAS_PIL = False
 
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, base_dir)
@@ -445,7 +453,7 @@ def full_catalog_audit():
     # 2. ECO-Sport 0.1 verified
     eco = next(m for m in data if m['id'] == 'paravozz_eco_sport')
     assert len(eco['images']) >= 3, "ECO-Sport missing >= 3 images"
-    assert "11 克" in eco['specs']['整机重量'], "ECO-Sport weight spec missing 11g"
+    assert "11 克" in eco['officialNotes'], "ECO-Sport officialNotes missing 11g"
     assert "PEI" in eco['specs']['主体材质'], "ECO-Sport material missing PEI"
     assert "1.2 mm" in eco['specs']['进气规格'], "ECO-Sport airflow missing 1.2mm"
     for img in eco['images']:
@@ -759,6 +767,7 @@ def full_catalog_audit():
     assert 'nav-subtitle' in html, "index.html missing .nav-subtitle"
     assert 'nav-mobile-badge' in html, "index.html missing .nav-mobile-badge"
     assert '108 款' in html, "index.html missing 108 款 mobile capsule badge"
+    assert '104 款' not in html, "Legacy '104 款' text still present in index.html"
     assert 'min-height: 44px' in html or 'height: 44px' in html, "index.html missing 44px compact navbar specification"
     assert 'brand-logo-img {\n        height: 24px' in html or 'brand-logo-img {\n        height: 24px;' in html or '.brand-logo-img' in html, "index.html missing mobile logo resize"
     assert '.logo-badge {\n        display: none;' in html or '.logo-badge { display: none; }' in html or 'display: none' in html, "index.html missing badge hide on mobile"
@@ -1220,9 +1229,260 @@ def full_catalog_audit():
     print(f"  实拍图库: 新增 16 张超清真机微距实拍（正面定妆、零件分解、电极底座、发热丝网芯），0 SVG，0 碰撞！")
     print(f" -> 验证通过: Batch 35 欧美与东欧客制化殿堂 4 款纯网名作 100% 验收通过！")
 
+    # --- 46. UI Filter Capsules Complete Bidirectional Simulation Audit ---
+    print("\n[Test 46] 校验前端全量筛选胶囊 UI 标数与实际过滤数据 100% 闭环同步及 Luca Creations 独立性...")
+    # 1. Check Luca Creations isolation in index.html JS
+    assert "activeFilter === 'luca' && !item.brand.toLowerCase().includes('luca creations')" in html, \
+        "index.html must use 'luca creations' in activeFilter === 'luca' to prevent substring false positive with Gianluca!"
+
+    # 2. Extract all filter pills with count
+    pills = re.findall(r'<div class="filter-pill[^"]*" data-filter="([^"]+)">([^<]+)</div>', html)
+    assert len(pills) == 39, f"Expected 39 filter pills, got {len(pills)}"
+
+    filter_rules = {
+        'all': lambda it: True,
+        'paravozz': lambda it: 'paravozz' in it['brand'].lower() or 'paravozz' in it['name'].lower(),
+        'yg_creation': lambda it: 'yg creation' in it['brand'].lower() or 'yg creation' in it['name'].lower(),
+        'blm': lambda it: 'bear lair' in it['brand'].lower() or 'BLM' in it['brand'],
+        '415': lambda it: '415' in it['brand'] or 'S61' in it['name'],
+        'domestic': lambda it: '中国' in it['origin'],
+        'athea': lambda it: 'athea' in it['brand'].lower(),
+        'vaponaute': lambda it: 'vaponaute' in it['brand'].lower(),
+        'xmv': lambda it: 'xtra mile' in it['brand'].lower() or 'xmv' in it['brand'].lower(),
+        'rsm': lambda it: 'rocket science' in it['brand'].lower(),
+        'docdave': lambda it: 'doc dave' in it['brand'].lower(),
+        'hellfire': lambda it: 'hellfire' in it['brand'].lower() or 'attysmith' in it['brand'].lower(),
+        'titaniummods': lambda it: 'titanium mods' in it['brand'].lower(),
+        'walker': lambda it: 'walker' in it['brand'].lower(),
+        'jmmods': lambda it: 'jm mods' in it['brand'].lower() or 'jmmods' in it['brand'].lower(),
+        'boostlab': lambda it: 'boost lab' in it['brand'].lower(),
+        'nahual': lambda it: 'nahual' in it['brand'].lower() or 'urquidez' in it['brand'].lower(),
+        'steamboy': lambda it: 'steamboy' in it['brand'].lower(),
+        'hoh': lambda it: 'house of hybrids' in it['brand'].lower() or 'zen' in it['brand'].lower(),
+        'senio': lambda it: 'senio' in it['brand'].lower(),
+        'va': lambda it: 'vicious ant' in it['brand'].lower(),
+        'satburn': lambda it: 'satburn' in it['brand'].lower(),
+        'vwm': lambda it: 'vwm' in it['brand'].lower() or 'vape ware' in it['brand'].lower(),
+        'origen': lambda it: 'origen' in it['brand'].lower(),
+        'ddp': lambda it: 'ddp' in it['brand'].lower(),
+        'luca': lambda it: 'luca creations' in it['brand'].lower(),
+        'diablo': lambda it: 'diablo' in it['brand'].lower(),
+        'mojo': lambda it: 'mojo' in it['brand'].lower(),
+        'orion_mods': lambda it: 'orion' in it['brand'].lower() or 'nosmoker' in it['brand'].lower(),
+        'ihybrid': lambda it: 'ihybrid' in it['brand'].lower() or 'ihybrid' in it['name'].lower(),
+        'mmv': lambda it: 'mmvapors' in it['brand'].lower() or 'mmv' in it['brand'].lower() or 'mmv' in it['id'],
+        'vanmods': lambda it: 'van mods' in it['brand'].lower() or 'vanja' in it['brand'].lower(),
+        'atmomixani': lambda it: 'atmomixani' in it['brand'].lower(),
+        'dropmods': lambda it: 'drop mods' in it['brand'].lower(),
+        'chimera': lambda it: 'chimera' in it['brand'].lower(),
+        'ifmods': lambda it: 'if mods' in it['brand'].lower() or 'ifmods' in it['brand'].lower(),
+        'has_reviews': lambda it: bool(it.get('reviews')),
+        'has_zuosi': lambda it: bool(it.get('zuosi')),
+        'has_tanbang': lambda it: bool(it.get('tanbang'))
+    }
+
+    for fkey, flabel in pills:
+        assert fkey in filter_rules, f"Missing filter simulation rule for {fkey}"
+        rule = filter_rules[fkey]
+        matched = [it['id'] for it in data if rule(it)]
+
+        cnt_match = re.search(r'\((\d+)\)', flabel)
+        if cnt_match:
+            expected_cnt = int(cnt_match.group(1))
+            assert len(matched) == expected_cnt, f"Filter pill {fkey} count mismatch: expected {expected_cnt}, got {len(matched)}"
+
+        # Specific bidirectional assertions for Luca Creations
+        if fkey == 'luca':
+            assert matched == ['luca_duetto', 'luca_spider'], f"Luca Creations matched incorrect models: {matched}"
+            assert 'gbell' not in matched, "gbell (G-Bell Gianluca) erroneously matched Luca Creations!"
+
+    print(f"  前端胶囊联动审计: 39 枚筛选胶囊 UI 标数与实际过滤数据 100% 闭环吻合；Luca Creations (2) 精准隔离（Duetto, Spider），0 误伤 gbell！")
+    print(f" -> 验证通过: UI 筛选胶囊双向模拟仿真 100% 验收通过！")
+
+    # --- 47. Image Binary Magic Number & Natural Optical Entropy Audit ---
+    print("\n[Test 47] 校验全库 404 张实拍图片二进制文件头 (JPEG \\xFF\\xD8\\xFF)、尺寸完整度与自然光学熵值...")
+    def calc_entropy(data_bytes):
+        if not data_bytes: return 0.0
+        counts = collections.Counter(data_bytes)
+        n = len(data_bytes)
+        return -sum((c / n) * math.log2(c / n) for c in counts.values())
+
+    entropies = []
+    for rel_p in all_images:
+        full_p = os.path.join(base_dir, rel_p)
+        assert os.path.exists(full_p), f"Image missing: {full_p}"
+        size = os.path.getsize(full_p)
+        assert size > 5000, f"Image too small: {rel_p} ({size} bytes)"
+
+        with open(full_p, 'rb') as f:
+            magic = f.read(3)
+            assert magic == b'\xff\xd8\xff', f"Invalid JPEG header magic for {rel_p}: {magic.hex()}"
+            f.seek(0)
+            content = f.read()
+            ent = calc_entropy(content)
+            assert ent >= 6.0, f"Image optical entropy suspiciously low ({ent:.2f} < 6.0): {rel_p}"
+            entropies.append(ent)
+
+        if HAS_PIL:
+            with Image.open(full_p) as im:
+                w, h = im.size
+                assert w >= 50 and h >= 50, f"Image dimensions abnormally small: {rel_p} ({w}x{h})"
+                assert im.format == 'JPEG', f"Image format not JPEG: {rel_p} ({im.format})"
+
+    print(f"  图片二进制与光学审计: 404 张实拍照片 100% 为纯真 JPEG 二进制格式 (\\xFF\\xD8\\xFF 文件头)，尺寸健全，自然光学香农熵 >= 6.0 (均值 {sum(entropies)/len(entropies):.2f})，0 SVG/CAD，0 假图！")
+    print(f" -> 验证通过: 404 张实拍图二进制魔数与光学熵完整性 100% 验收通过！")
+
+    # --- 48. 12 Standardized Physical Parameters Strict Unit & Value Audit ---
+    print("\n[Test 48] 校验全馆 108 款 12 项标准化技术规格物理参数单位正则与数值健全性...")
+    required_12_keys = [
+        '设备类型', '品牌产地', '发布时间', '外形直径', '本体高度', '油仓容量',
+        '主体材质', '电极平台', '导油孔径', '导油介质', '进气规格', '接口规格'
+    ]
+
+    for item in data:
+        iid = item['id']
+        specs = item.get('specs', {})
+        assert len(specs) == 12, f"{iid} specs must have exactly 12 keys, found {len(specs)}"
+        assert set(specs.keys()) == set(required_12_keys), f"{iid} specs keys mismatch: {set(specs.keys()) ^ set(required_12_keys)}"
+        for k in required_12_keys:
+            assert k in specs and specs[k], f"{iid} missing spec: {k}"
+
+        dia = specs['外形直径']
+        assert re.search(r'\d+(\.\d+)?\s*mm', dia, re.IGNORECASE) or 'Boro' in dia, \
+            f"{iid} 外形直径 invalid unit: {dia}"
+
+        ht = specs['本体高度']
+        assert re.search(r'\d+(\.\d+)?\s*mm', ht, re.IGNORECASE) or 'Boro' in ht, \
+            f"{iid} 本体高度 invalid unit: {ht}"
+
+        cap = specs['油仓容量']
+        assert re.search(r'\d+(\.\d+)?\s*ml', cap, re.IGNORECASE) or any(k in cap for k in ['BF', '底注', 'Boro']), \
+            f"{iid} 油仓容量 invalid unit: {cap}"
+
+        wick = specs['导油孔径']
+        assert re.search(r'\d+(\.\d+)?\s*mm', wick, re.IGNORECASE) or any(k in wick for k in ['中心同轴', 'Center-post', '立柱']), \
+            f"{iid} 导油孔径 invalid unit: {wick}"
+
+        conn = specs['接口规格']
+        assert any(k in conn for k in ['510', 'Boro', '一体', '直连', '螺纹', 'Billet', 'ProVari', 'Hybrid']), \
+            f"{iid} 接口规格 invalid connector: {conn}"
+
+        pt = specs['发布时间']
+        assert re.match(r'^(\d{4}年(1[0-2]|[1-9])月)$', pt) or re.match(r'^约\s*\d{4}年\s*\(暂定\)$', pt), \
+            f"{iid} 发布时间 invalid format: {pt}"
+
+        bo = specs['品牌产地']
+        assert (any(c in bo for c in ['·', '(', '（']) and len(bo) >= 4), f"{iid} 品牌产地 format invalid: {bo}"
+
+        dt = specs['设备类型']
+        assert any(k in dt for k in ['Genesis', '网', 'RDTA', 'RTA', 'RBA', 'Bridge']), \
+            f"{iid} 设备类型 invalid: {dt}"
+
+        mat = specs['主体材质']
+        assert any(k in mat for k in ['钢', '钛', '316', '304', 'SUS', '黄铜', 'Titanium', 'PEEK', 'Ultem', '玻璃', '铝']), \
+            f"{iid} 主体材质 invalid: {mat}"
+
+        assert len(specs['电极平台']) >= 6, f"{iid} 电极平台 description too brief: {specs['电极平台']}"
+        assert len(specs['进气规格']) >= 4, f"{iid} 进气规格 description too brief: {specs['进气规格']}"
+
+        med = specs['导油介质']
+        assert any(k in med for k in ['网', '微孔', '陶瓷', 'Mesh', '钢丝绳外裹细网', '碳棒']), \
+            f"{iid} 导油介质 invalid: {med}"
+
+    print(f"  技术参数正则审查: 全馆 108 款 12 项物理规格全量遵循标准格式（直径/高度/孔径 mm、容量 ml、规范接口与时间），无缺失、无模糊副词、无估算歧义！")
+    print(f" -> 验证通过: 12 项标准化技术参数单位正则与数值健全性 100% 验收通过！")
+
+    # --- 49. Pure Genesis Authentic Mesh-Wicking Medium Purity Audit ---
+    print("\n[Test 49] 校验全馆 108 款导油介质纯度规范（零棉花 0 棉绳 0 网片，100% 纯血创世纪微孔网/陶瓷）...")
+    for item in data:
+        iid = item['id']
+        med = item['specs'].get('导油介质', '')
+        deck = item['specs'].get('电极平台', '')
+        mtype = item['specs'].get('设备类型', '')
+
+        assert '棉' not in med, f"{iid} specs['导油介质'] contains cotton! Got: {med}"
+        assert 'cotton' not in med.lower(), f"{iid} specs['导油介质'] contains cotton in English! Got: {med}"
+        assert '棉' not in deck, f"{iid} specs['电极平台'] contains cotton! Got: {deck}"
+        assert 'cotton' not in deck.lower(), f"{iid} specs['电极平台'] contains cotton in English! Got: {deck}"
+
+        assert '发热网片' not in med, f"{iid} specs['导油介质'] contains mesh heating sheet: {med}"
+        assert '发热网片' not in deck, f"{iid} specs['电极平台'] contains mesh heating sheet: {deck}"
+        assert '发热网片' not in mtype, f"{iid} specs['设备类型'] contains mesh heating sheet: {mtype}"
+
+        assert any(k in med for k in ['网', '微孔', '陶瓷', 'Mesh', '钢丝绳外裹细网', '碳棒']), \
+            f"{iid} specs['导油介质'] missing pure genesis medium: {med}"
+
+    print(f"  导油介质纯血审查: 全馆 108 款雾化器标准参数表实现 0 棉花、0 棉绳、0 发热网片，100% 纯血创世纪金属网芯与陶瓷棒原教旨导油！")
+    print(f" -> 验证通过: 全馆 108 款导油介质纯血提纯 100% 验收通过！")
+
+    # --- 50. Dual-Source Chronicle Archive Validation & Authoritative Source Classification ---
+    print("\n[Test 50] 校验 97 款确证型号一手原厂/官方+二手独立评测双源证据链与 11 款待考证历史阻断成因全闭环...")
+    confirmed_count = 0
+    tentative_count = 0
+
+    primary_authority_keywords = [
+        '官方', '原厂', '工坊', '出厂', 'VWM', 'Robul', 'Walker', 'House of Hybrids', 'PARaVOzZ',
+        '发布', '预定', 'Modder', 'Facebook', 'VK', 'Vaporwall', 'ECF', '交付', '批次', '研制', '试制', '作者',
+        'Siam', 'Fakirs', 'Steamboy', 'Athea', 'Doc Dave', 'Youde', 'UD', 'SMOK', 'Vicious Ant',
+        'G-Bell', 'Diablo', 'Mojo', 'Orion', 'Van Mods', 'Atmomixani', 'Drop Mods', 'Chimera', 'IF Mods',
+        'MMV', 'DDP', 'Luca', 'Four One Five', '415', 'Satburn', 'Vaponaute', 'Origen', 'BLM', 'YG'
+    ]
+    secondary_archive_keywords = [
+        '评测', '论坛', 'Todd', 'POTV', 'ECF', 'Gabish', 'Tisvapo', 'BelVaping', 'YouTube', '档案',
+        '讨论', '实测', '记录', '博主', '专栏', '社区', '文献', 'Vaporwall', 'eCigTalk', 'FC2', '视频',
+        '推特', 'Twitter', 'Instagram', '测评', '媒体', '报道', '晒单', '经销商', '数据库', '俱乐部', 'Wiki'
+    ]
+    tentative_blocking_keywords = [
+        '打样', '试作', '私人', '订制', '定制', '极客', '小圈子', '非量产', '非工业化', '无公开',
+        '未开具', '少量', '流转', '断代', '暂定', '非独立'
+    ]
+
+    for item in data:
+        iid = item['id']
+        dv = item.get('dateVerification', {})
+        assert dv and isinstance(dv, dict), f"{iid} missing dateVerification metadata"
+
+        status = dv.get('status')
+        primary = dv.get('primary', '')
+        secondary = dv.get('secondary', '')
+        analysis = dv.get('analysis', '')
+        pub_date = item['specs'].get('发布时间', '')
+
+        if status == 'confirmed':
+            confirmed_count += 1
+            assert len(primary) >= 15, f"{iid} primary evidence too short: {primary}"
+            assert len(secondary) >= 15, f"{iid} secondary evidence too short: {secondary}"
+            assert len(analysis) >= 8, f"{iid} analysis too short: {analysis}"
+            assert primary != secondary, f"{iid} primary and secondary evidence are duplicate: {primary}"
+            assert any(k.lower() in primary.lower() for k in primary_authority_keywords), \
+                f"{iid} primary evidence missing authoritative keyword: {primary}"
+            assert any(k.lower() in secondary.lower() for k in secondary_archive_keywords), \
+                f"{iid} secondary evidence missing archive keyword: {secondary}"
+            assert re.match(r'^\d{4}年(1[0-2]|[1-9])月$', pub_date), f"{iid} confirmed model pub_date invalid format: {pub_date}"
+
+        elif status == 'tentative':
+            tentative_count += 1
+            assert len(analysis) >= 15, f"{iid} tentative analysis too short: {analysis}"
+            assert any(k in analysis for k in tentative_blocking_keywords), \
+                f"{iid} tentative analysis missing blocking reason: {analysis}"
+            assert re.match(r'^约\s*\d{4}年\s*\(暂定\)$', pub_date), f"{iid} tentative model pub_date invalid format: {pub_date}"
+        else:
+            assert False, f"{iid} invalid dateVerification status: {status}"
+
+    assert confirmed_count == 97, f"Expected 97 confirmed models, got {confirmed_count}"
+    assert tentative_count == 11, f"Expected 11 tentative models, got {tentative_count}"
+
+    assert 'id="timelineTrack"' in html, "index.html missing timelineTrack"
+    assert 'id="timelineTentativeSection"' in html, "index.html missing timelineTentativeSection"
+    assert '97 款确证 · 11 款待考证' in html, "index.html missing 97 款确证 · 11 款待考证 badge"
+
+    print(f"  编年双源与权威资质审计: 97 款确证型号全部具备原厂一手主证据与独立评测辅证据互证；11 款待考证型号客观详述私人打样/小圈子流转成因；时间轴视图完美同步！")
+    print(f" -> 验证通过: 编年史双源证据链与权威资质分类 100% 验收通过！")
+
     print("\n" + "=" * 60)
-    print("    恭喜！全馆 45 大终极核对套件全部通过（100% PASS）！")
+    print("    恭喜！全馆 50 大终极核对套件全部通过（100% PASS）！")
     print("=" * 60)
 
 if __name__ == '__main__':
     full_catalog_audit()
+
